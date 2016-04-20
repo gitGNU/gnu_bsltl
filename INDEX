@@ -1,0 +1,16 @@
+# Functions in the library
+BSLTL >> Bio-Speckle Laser Tool Library
+Data
+ datacut datapack datapack_to_gif
+Extras
+ hbpmf mwindowing threshold2d
+Filter
+ datapack_conv firfilterbank firsynthesisbank firsynthesispath freqmod qmfmaker qmfmirror
+Graphic
+ fujii gendiff stdcont graphavd graphim graphptd graphrvd graphmhi graphkurt graphskew
+Numerical
+ avd coom inertiamoment numad rvd stscorr thsp2corr pmfad pmfrd thsp thsp_gaussian thsp_line thsp_random
+Quality
+ homogeneity satdark sscont
+WithoutTutorial
+ datapack_to_bmp
