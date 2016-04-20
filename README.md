@@ -111,11 +111,13 @@ Fernando Pujaico Rivera    <fernando.pujaico.rivera@gmail.com>
 Junio Moreira	           <juniomoreira@iftm.edu.br>
 
 ## Support or Contact
+
 Having trouble with package? Check out our 
 [documentation](http://www.nongnu.org/bsltl/documentation.html) or 
 [contact support](https://savannah.nongnu.org/mail/?group=bsltl).
 
 ## Home Page
+
 [Home page of BSLTL project](http://www.nongnu.org/bsltl/).
 
 
