@@ -7,6 +7,7 @@ The BSLTL package is a free collection of OCTAVE/MATLAB routines for working wit
 biospeckle laser technique.
 
 ## Citations
+
 To cite the BSLTL package in publications use:
 
 	Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
@@ -30,51 +31,67 @@ package with pkgname name.
 
 ## Install
 
-### Method 1: Only in OCTAVE
-The next OCTAVE code install the BSLTL package [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/) 
+### Method 1: Online - Only in OCTAVE
+
+The next OCTAVE code, install the last version of BSLTL package directly from 
+octave-forge site in the default install directory.
+
+	pkg install -forge bsltl
+
+With this method the package is configured for be loaded automatically when OCTAVE start.
+
+### Method 2: Offline - Only in OCTAVE
+
+The next OCTAVE code, install the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
 in the directory: ~/lib/octmat
 If the BSLTL package was downloaded in the directory: /download_path
 
 	pkg prefix ~/lib/octmat
 	pkg install /download_path/bsltl.tar.gz
 
-Whith this method the package is configured for be loaded automatically when OCTAVE start.
+With this method the package is configured for be loaded automatically when OCTAVE start.
 
+### Method 3: Offline - In MATLAB or OCTAVE
 
-#### Using the library - Example code - Getting the AVD value
-	IMAGESDIR = '/home/user/data/speckle/test1';
-
-	DATA = datapack(IMAGESDIR,'',1,129,'bmp');
-
-	THSP = thsp(DATA,1,240);
-	COM  = coom(THSP);
-	AVD  = avd(COM);
-
-### Method 2: In MATLAB or OCTAVE
-
-If the BSLTL package was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
+If the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
+was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
 For that this package can be used by a source file, it needs add the next code 
-in the top of file.
+in the top of source file.
 
 	BSLTL_DIR='/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
 
 The function genpath generates a list with the directories and sub directories.
 The function addpath add directories to system path.
-Whith this method the package should be configured manually after OCTAVE/MATLAB start.
 
-#### Using the library - Example code - Getting the AVD value
+In this method we install (add to  Octave path) the BSLTL package each time that 
+we call our source files. 
+
+## Using the BSLTL package
+
+Many code examples  can be found in the [site](http://www.nongnu.org/bsltl)
+
+### Example code of method 1 and 2- Getting the AVD value of line 240
+	IMAGES_DIR = '/home/user/data/speckle/test1';
+
+	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+
+	THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
+	COM  = coom(THSP);                % Getting the co-occurrence matrix.
+	AVD  = avd(COM);                  % Getting the AVD value.
+
+### Example code of method 3 - Getting the AVD value of column 100
 
 	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
 
-	IMAGESDIR = '/home/user/data/speckle/test1';
+	IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGESDIR,'',1,129,'bmp');
+	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
 
-	THSP = thsp(DATA,1,240);
-	COM  = coom(THSP);
-	AVD  = avd(COM);
+	THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
+	COM  = coom(THSP);                % Getting the co-occurrence matrix.
+	AVD  = avd(COM);                  % Getting the AVD value.
 
 
 ## Copyright
