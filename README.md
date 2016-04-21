@@ -34,7 +34,7 @@ package with pkgname name.
 ### Method 1: Online - Only in OCTAVE
 
 The next OCTAVE code, install the last version of BSLTL package directly from 
-octave-forge site in the default install directory.
+octave-forge website in the default install directory.
 
 	pkg install -forge bsltl
 
@@ -62,16 +62,19 @@ in the top of source file.
 	addpath(genpath(BSLTL_DIR));
 
 The function genpath generates a list with the directories and sub directories.
-The function addpath add directories to system path.
+The function addpath add directories to OCTAVE system path.
 
-In this method we install (add to  Octave path) the BSLTL package each time that 
-we call our source files. 
+In this method we install (add to  Octave system path) the BSLTL package each 
+time that we call our source files. 
 
 ## Using the BSLTL package
 
-Many code examples  can be found in the [site](http://www.nongnu.org/bsltl)
+Many code examples  can be found in the [homepage](http://www.nongnu.org/bsltl)
+of BSLTL library.
 
-### Example code of method 1 and 2- Getting the AVD value of line 240
+### Example code of method 1 and 2 - Getting the AVD value of line 240
+
+	:::octave
 	IMAGES_DIR = '/home/user/data/speckle/test1';
 
 	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
@@ -82,6 +85,7 @@ Many code examples  can be found in the [site](http://www.nongnu.org/bsltl)
 
 ### Example code of method 3 - Getting the AVD value of column 100
 
+	:::octave
 	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
 
