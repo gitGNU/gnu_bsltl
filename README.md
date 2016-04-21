@@ -74,7 +74,6 @@ of BSLTL library.
 
 ### Example code of method 1 and 2 - Getting the AVD value of line 240
 
-	:::octave
 	IMAGES_DIR = '/home/user/data/speckle/test1';
 
 	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
@@ -85,7 +84,6 @@ of BSLTL library.
 
 ### Example code of method 3 - Getting the AVD value of column 100
 
-	:::octave
 	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
 
