@@ -29,6 +29,23 @@ We have invested a lot of time and effort in creating BSLTL package, please
 cite it when using it.  See also `citation pkgname' for citing other Octave 
 package with pkgname name.
 
+## Dependencies
+
+Some functions inside BSLTL package (filtering functions) depend of signal
+package; at the same time the signal package depends of control package.
+Thus, we recommend install first the control package and later the signal package
+with the next OCTAVE commands.
+
+	pkg install -forge control
+	pkg install -forge signal
+
+In operating systems based in GNU/Linux can be necessary install first the 
+library liboctave-dev in the system, given that OCTAVE uses this library to install 
+the control package. The next code is an example of command install in the system.
+
+	sudo apt-get install liboctave-dev
+
+
 ## Install
 
 ### Method 1: Online - Only in OCTAVE
