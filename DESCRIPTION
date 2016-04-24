@@ -8,7 +8,7 @@ Description: The BSLTL package is a free collection of OCTAVE/MATLAB routines fo
 Categories: Biospeckle Laser, Dynamic Laser Speckle,  Processing Images
 #Problems: Nothing I known
 Url: http://www.nongnu.org/bsltl/
-Autoload: true
+Autoload: false
 Depends: octave (>= 3.8.0), control (>= 2.2.3), signal (>= 1.2.2)
 License: GPLv3+
 #SystemRequirements: 
