@@ -1,10 +1,10 @@
 %                   Bio Speckle Laser Tool Library
 %  
-%  Version: 1.0
+%  Version: 1.0.0
 % 
 %  Code developers:  Roberto Alves Braga Junior  <robertobraga@deg.ufla.br>
 %                    Fernando Pujaico Rivera  <fernando.pujaico.rivera@gmail.com>
-%                    Junio Moreira 
+%                    Junio Moreira <juniomoreira@iftm.edu.br>
 %
 %  data/             * Functions for to work with data packages.
 %

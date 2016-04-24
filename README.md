@@ -53,7 +53,7 @@ the control package. The next code is an example of command install in the syste
 The next OCTAVE code, install the last version of BSLTL package directly from 
 octave-forge website in the default install directory.
 
-	pkg install -forge bsltl
+	pkg install -forge -auto bsltl
 
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
@@ -64,7 +64,7 @@ in the directory: ~/lib/octmat
 If the BSLTL package was downloaded in the directory: /download_path
 
 	pkg prefix ~/lib/octmat
-	pkg install /download_path/bsltl.tar.gz
+	pkg install -auto /download_path/bsltl.tar.gz
 
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
