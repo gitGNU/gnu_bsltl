@@ -1,4 +1,5 @@
-%  Copyright (C) 2016  Fernando Pujaico Rivera
+%  Copyright (C) 2016 Carnë Draug <carandraug@octave.org>
+%  Copyright (C) 2016  Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %
 %  This file is a part of the Bio Speckle Laser Tool Library (BSLTL) package.
 %
