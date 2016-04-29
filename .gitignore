@@ -1,0 +1,15 @@
+## Our Makefile target.
+/target
+
+*.dvi
+*.pdf
+*.o
+*.oct
+*.tar.gz
+
+## When Octave crashes.
+octave-core
+octave-workspace
+
+## Text editors often create these.
+~.*
