@@ -38,7 +38,6 @@ function subdir_paths = __bsltl_package_register__ (loading = 0)
 	subdir_paths = genpath(fullfile (base_pkg_path, 'mfiles'));
 
 	if		(loading > 0)
-		addpath (base_pkg_path);
 		addpath (subdir_paths);
 	elseif	(loading < 0)
 		rmpath  (subdir_paths);
