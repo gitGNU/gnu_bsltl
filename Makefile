@@ -28,13 +28,16 @@ help:
 	@echo "Targets:"
 	@echo "   dist    - Create $(RELEASE_TARBALL) for release"
 	@echo "   html    - Create $(HTML_TARBALL) for release"
-	@echo "   release - Create both of the above and show md5sums"
-	@echo
-	@echo "   install - Install the package in GNU Octave"
+	@echo "   release - Create both of the above (dist/html) and make/show md5sum files"
+	@echo 
+	@echo '   clean   - Remove the "$(TARGET_DIR)/" directory (with releases and html documentation)'
+	@echo 
+	@echo "Targets (Additionals):"
+	@echo "   install - Install the $(PACKAGE) package in GNU Octave"
 	@echo "   check   - Execute package tests (w/o install)"
 	@echo "   run     - Run Octave with development in PATH (no install)"
 	@echo
-	@echo "   clean   - Remove releases and html documentation"
+
 
 %.tar.gz: %
 	tar -c -f - --posix -C "$(TARGET_DIR)/" "$(notdir $<)" | gzip -9n > "$@"
@@ -59,9 +62,28 @@ dist: $(RELEASE_TARBALL)
 html: $(HTML_TARBALL)
 
 release: dist html
-	md5sum $(RELEASE_TARBALL) $(HTML_TARBALL)
-	@echo "Upload to https://sourceforge.net/p/octave/package-releases/new/"
-	@echo 'Execute: hg tag "release-${VERSION}"'
+	@echo 
+	cd $(TARGET_DIR); md5sum $(notdir $(RELEASE_TARBALL)) > $(notdir $(RELEASE_TARBALL).md5)
+	cd $(TARGET_DIR); md5sum $(notdir $(HTML_TARBALL))  > $(notdir $(HTML_TARBALL).md5)
+	@echo 	
+	@echo "====================================================================="
+	@echo "Tasks:"
+	@echo "1) Upload to https://sourceforge.net/p/octave/package-releases/new/"
+	@echo '   all the tar.gz  and md5 files located in "$(TARGET_DIR)/" and post :'
+	@echo 	
+	@echo "   Please upload the attached:"
+	@echo "   "`cat $(RELEASE_TARBALL).md5`
+	@echo "   "`cat $(HTML_TARBALL).md5`
+	@echo "   to check: "
+	@echo "              md5sum -c $(notdir $(RELEASE_TARBALL).md5)"
+	@echo "              md5sum -c $(notdir $(HTML_TARBALL).md5)"
+	@echo 	
+	@echo '2) After being accepted, execute: '
+	@echo '            git tag -a ${VERSION} -m "release-${VERSION}"'
+	@echo 	
+	@echo "   to mark the current version no repository."
+	@echo "====================================================================="
+	@echo 	
 
 install: $(RELEASE_TARBALL)
 	@echo "Installing package locally ..."
