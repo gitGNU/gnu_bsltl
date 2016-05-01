@@ -14,6 +14,7 @@ RELEASE_DIR     := $(TARGET_DIR)/$(PACKAGE)-$(VERSION)
 RELEASE_TARBALL := $(TARGET_DIR)/$(PACKAGE)-$(VERSION).tar.gz
 HTML_DIR        := $(TARGET_DIR)/$(PACKAGE)-html
 HTML_TARBALL    := $(TARGET_DIR)/$(PACKAGE)-html.tar.gz
+EXPORT_DIR      := ../release
 
 M_SOURCES := $(wildcard inst/*.m)
 PKG_ADD   := $(shell grep -Pho '(?<=(\#\#|%%) PKG_ADD: ).*' $(M_SOURCES))
@@ -30,6 +31,7 @@ help:
 	@echo "   html    - Create $(HTML_TARBALL) for release"
 	@echo "   release - Create both of the above (dist/html) and make/show md5sum files"
 	@echo 
+	@echo "   move    - Move the tar.gz and md5sum files reated by release to $(EXPORT_DIR)"
 	@echo '   clean   - Remove the "$(TARGET_DIR)/" directory (with releases and html documentation)'
 	@echo 
 	@echo "Targets (Additionals):"
@@ -98,5 +100,9 @@ check:
 run:
 	$(OCTAVE) --persist --path "inst/" --eval '${PKG_ADD}'
 
+move: release
+	mkdir -p $(EXPORT_DIR)
+	cp -v --remove-destination --target-directory=$(EXPORT_DIR) \
+	$(RELEASE_TARBALL).md5 $(HTML_TARBALL).md5 $(RELEASE_TARBALL) $(HTML_TARBALL)
 clean:
 	$(RM) -r $(TARGET_DIR)
