@@ -27,15 +27,15 @@ OCTAVE ?= octave --no-window-system --silent
 
 help:
 	@echo "Targets:"
-	@echo "   dist    - Create $(RELEASE_TARBALL) for release"
-	@echo "   html    - Create $(HTML_TARBALL) for release"
+	@echo "   dist    - Create $(RELEASE_TARBALL) for release from last git commit"
+	@echo "   html    - Create $(HTML_TARBALL) for release from last git commit"
 	@echo "   release - Create both of the above (dist/html) and make/show md5sum files"
 	@echo 
 	@echo "   move    - Move the tar.gz and md5sum files reated by release to $(EXPORT_DIR)"
 	@echo '   clean   - Remove the "$(TARGET_DIR)/" directory (with releases and html documentation)'
 	@echo 
 	@echo "Targets (Additionals):"
-	@echo "   install - Install the $(PACKAGE) package in GNU Octave"
+	@echo "   install - Install the $(PACKAGE) package in GNU Octave (uses first: dist)"
 	@echo "   check   - Execute package tests (w/o install)"
 	@echo "   run     - Run Octave with development in PATH (no install)"
 	@echo
