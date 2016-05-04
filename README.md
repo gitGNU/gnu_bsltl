@@ -6,6 +6,11 @@
 The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 
+Implemented technics:
+* AVD,IM,COM,THSP, etc.
+* FUJII,GD,PTD,STD, etc.
+* FIR filters, DWT, IDWT, etc.
+
 ## Citations
 
 To cite the BSLTL package in publications use:
