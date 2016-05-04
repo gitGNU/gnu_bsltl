@@ -9,7 +9,6 @@
 @copying
 The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
-
 Copyright @copyright{} 2016 Fernando Pujaico Rivera
 @end copying
 
@@ -30,8 +29,19 @@ Copyright @copyright{} 2016 Fernando Pujaico Rivera
 @top Introduction
 
 The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
-biospeckle laser technique.
-(version 1.0.X).
+biospeckle laser technique.(version 1.0.X).
+
+Implemented technics:
+@itemize @bullet
+@item
+@math{ AVD=\sum_{i,j} NCOM(i,j) |i-j| }
+@item
+@math{ IM =\sum_{i,j} NCOM(i,j) |i-j|^2 }
+@item
+@math{ FUJII=\sum_{i} \frac{|I_{i}-I_{i-1}|}{I_{i}+I_{i-1}} }
+@end itemize
+
+
 @end ifnottex
 
 @menu
@@ -211,28 +221,28 @@ of BSLTL library.
 
 The increment in the version number has a meaning. To a version number 
 with the format 'va.b.c' (by example: v1.0.0).
-@enumerate
+@itemize @bullet
 @item
 An increment in 'c' indicates a modification or correction in the code.
 @item
 An increment in 'b' indicates that at least a new function was added in the code.
 @item
 An increment in 'c' is reserved to great modifications in the code.
-@end enumerate
+@end itemize
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @node BSLTL project group
 @chapter BSLTL project group
 
-@enumerate
+@itemize @bullet
 @item
 Roberto Alves Braga Júnior @email{robertobraga@@deg.ufla.br}
 @item
 Fernando Pujaico Rivera    @email{fernando.pujaico.rivera@@gmail.com}
 @item
 Junio Moreira	           @email{juniomoreira@@iftm.edu.br}
-@end enumerate
+@end itemize
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
