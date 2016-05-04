@@ -45,6 +45,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
+<link rel="stylesheet" type="text/css" href="manual.css">
 
 
 </head>
@@ -107,7 +108,7 @@ biospeckle laser technique.(version 1.0.X).
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Citations" accesskey="1">Citations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to cite the library.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="2">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the dependencies on Package.
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="2">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the dependencies of the BSLTL package.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Installation" accesskey="3">Installation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the intallation methods.
 </td></tr>
@@ -136,20 +137,20 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 
 
 <p>To cite the BSLTL package in publications use:
-</p><pre class="verbatim">	Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-	BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
-	URL http://www.nongnu.org/bsltl/
+</p><pre class="verbatim">Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
+BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
+URL http://www.nongnu.org/bsltl/
 </pre><a name="index-Citations-as-plain"></a>
 
 <p>A BibTeX entry for LaTeX users is:
-</p><pre class="verbatim">	@misc{BSLTL1,
-		author    = {Roberto Alves Braga Júnior and 
-					Fernando Pujaico Rivera and 
-					Junio Moreira},
-		title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.0},
-		year      = {2016},
-		url       = {http://www.nongnu.org/bsltl/}
-	}
+</p><pre class="verbatim">@misc{BSLTL1,
+	author    = {Roberto Alves Braga Júnior and 
+				Fernando Pujaico Rivera and 
+				Junio Moreira},
+	title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.0},
+	year      = {2016},
+	url       = {http://www.nongnu.org/bsltl/}
+}
 </pre><a name="index-Citations-as-bibtex"></a>
 <p>We have invested a lot of time and effort in creating BSLTL package, please 
 cite it when using it.  See also &lsquo;citation pkgname&rsquo; for citing other Octave 
@@ -168,16 +169,20 @@ Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previou
 package; at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
 with the next OCTAVE commands.
-</p><pre class="verbatim">	pkg install -forge control
-	pkg install -forge signal
-</pre><a name="index-Dependencies-of-Octave_002dForge"></a>
+</p><div class="example">
+<pre class="example">pkg install -forge control
+pkg install -forge signal
+</pre></div>
+<a name="index-Dependencies-of-Octave_002dForge"></a>
 
 <p>In operating systems based in GNU/Linux can be necessary install first the 
 library liboctave-dev in the system, given that OCTAVE uses this library to install 
 the control package. The next code is an example of command install in the system.
 </p>
-<pre class="verbatim">	sudo apt-get install liboctave-dev
-</pre><a name="index-Dependencies-of-GNU_002dLinux"></a>
+<div class="example">
+<pre class="example">sudo apt-get install liboctave-dev
+</pre></div>
+<a name="index-Dependencies-of-GNU_002dLinux"></a>
 <p>We have invested a lot of time and effort in creating BSLTL package, please 
 cite it when using it.  See also &lsquo;citation pkgname&rsquo; for citing other Octave 
 package with pkgname name.
@@ -197,8 +202,10 @@ Next: <a href="#Using-the-BSLTL-package" accesskey="n" rel="next">Using the BSLT
 <a name="index-Method-1"></a>
 <p>The next OCTAVE code, install the last version of BSLTL package directly from 
 octave-forge website in the default install directory.
-</p><pre class="verbatim">	pkg install -forge -auto bsltl
-</pre><p>With this method the package is configured for be loaded automatically when OCTAVE start.
+</p><div class="example">
+<pre class="example">pkg install -forge -auto bsltl
+</pre></div>
+<p>With this method the package is configured for be loaded automatically when OCTAVE start.
 </p>
 <a name="Method-2_003a-Offline-_002d-Only-in-OCTAVE"></a>
 <h3 class="section">3.2 Method 2: Offline - Only in OCTAVE</h3>
@@ -206,9 +213,11 @@ octave-forge website in the default install directory.
 <p>The next OCTAVE code, install the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
 in the directory: ~/lib/octmat
 If the BSLTL package was downloaded in the directory: /download_path
-</p><pre class="verbatim">	pkg prefix ~/lib/octmat
-	pkg install -auto /download_path/bsltl.tar.gz
-</pre><p>With this method the package is configured for be loaded automatically when OCTAVE start.
+</p><div class="example">
+<pre class="example">pkg prefix ~/lib/octmat
+pkg install -auto /download_path/bsltl.tar.gz
+</pre></div>
+<p>With this method the package is configured for be loaded automatically when OCTAVE start.
 </p>
 <a name="Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE"></a>
 <h3 class="section">3.3 Method 3: Offline - In MATLAB or OCTAVE</h3>
@@ -217,9 +226,11 @@ If the BSLTL package was downloaded in the directory: /download_path
 was uncompressed in the directory &rsquo;/home/user/lib/octmat/bsltl&rsquo;. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
-</p><pre class="verbatim">	BSLTL_DIR='/home/user/lib/octmat/bsltl';
-	addpath(genpath(BSLTL_DIR));
-</pre><p>The function genpath generates a list with the directories and sub directories.
+</p><div class="example">
+<pre class="example">BSLTL_DIR='/home/user/lib/octmat/bsltl';
+addpath(genpath(BSLTL_DIR));
+</pre></div>
+<p>The function genpath generates a list with the directories and sub directories.
 The function addpath add directories to OCTAVE system path.
 </p>
 <p>In this method we install (add to  Octave system path) the BSLTL package each 
@@ -241,28 +252,32 @@ of BSLTL library.
 <h3 class="section">4.1 Example code of method 1 and 2 - Getting the AVD value of line 240</h3>
 <a name="index-Method-1-1"></a>
 <a name="index-Method-2-1"></a>
-<pre class="verbatim">	IMAGES_DIR = '/home/user/data/speckle/test1';
+<div class="example">
+<pre class="example">IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
 
-	THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
-	COM  = coom(THSP);                % Getting the co-occurrence matrix.
-	AVD  = avd(COM);                  % Getting the AVD value.
-</pre>
+THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
+COM  = coom(THSP);                % Getting the co-occurrence matrix.
+AVD  = avd(COM);                  % Getting the AVD value.
+</pre></div>
+
 <a name="Example-code-of-method-3-_002d-Getting-the-AVD-value-of-column-100"></a>
 <h3 class="section">4.2 Example code of method 3 - Getting the AVD value of column 100</h3>
 <a name="index-Method-3-1"></a>
-<pre class="verbatim">	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
-	addpath(genpath(BSLTL_DIR));
+<div class="example">
+<pre class="example">BSLTL_DIR = '/home/user/lib/octmat/bsltl';
+addpath(genpath(BSLTL_DIR));
 
-	IMAGES_DIR = '/home/user/data/speckle/test1';
+IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
 
-	THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
-	COM  = coom(THSP);                % Getting the co-occurrence matrix.
-	AVD  = avd(COM);                  % Getting the AVD value.
-</pre>
+THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
+COM  = coom(THSP);                % Getting the co-occurrence matrix.
+AVD  = avd(COM);                  % Getting the AVD value.
+</pre></div>
+
 <hr>
 <a name="Copyright"></a>
 <div class="header">
@@ -271,22 +286,22 @@ Next: <a href="#Versions" accesskey="n" rel="next">Versions</a>, Previous: <a hr
 </div>
 <a name="Copyright-1"></a>
 <h2 class="chapter">5 Copyright</h2>
-<pre class="verbatim">	Copyright (c) 2016 BSLTL project group.
+<pre class="verbatim">Copyright (c) 2016 BSLTL project group.
 
-	This program is free software; you can redistribute it and/or
-	modify it under the terms of the GNU General Public License as
-	published by the Free Software Foundation; either version 2 of the
-	License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
 	 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 	
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
-	USA.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA.
 </pre>
 <hr>
 <a name="Versions"></a>

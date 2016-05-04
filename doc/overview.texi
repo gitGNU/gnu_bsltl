@@ -1,7 +1,7 @@
 \input texinfo
 @c #############################################################################
 @c 
-@c texi2any --html --no-split overview.texi
+@c texi2any --html --no-split overview.texi --css-ref=manual.css
 @c 
 @c #############################################################################
 
@@ -47,7 +47,7 @@ Implemented technics:
 
 @menu
 * Citations::    How to cite the library.
-* Dependencies:: About the dependencies on Package.
+* Dependencies:: About the dependencies of the BSLTL package.
 * Installation:: About the intallation methods.
 * Using the BSLTL package:: About as to use the BSLTL package.
 * Copyright::    Legal notice copyright.
@@ -65,22 +65,22 @@ Implemented technics:
 
 To cite the BSLTL package in publications use:
 @verbatim
-	Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-	BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
-	URL http://www.nongnu.org/bsltl/
+Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
+BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
+URL http://www.nongnu.org/bsltl/
 @end verbatim
 @cindex Citations as plain
 
 A BibTeX entry for LaTeX users is:
 @verbatim
-	@misc{BSLTL1,
-		author    = {Roberto Alves Braga Júnior and 
-					Fernando Pujaico Rivera and 
-					Junio Moreira},
-		title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.0},
-		year      = {2016},
-		url       = {http://www.nongnu.org/bsltl/}
-	}
+@misc{BSLTL1,
+	author    = {Roberto Alves Braga Júnior and 
+				Fernando Pujaico Rivera and 
+				Junio Moreira},
+	title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.0},
+	year      = {2016},
+	url       = {http://www.nongnu.org/bsltl/}
+}
 @end verbatim
 @cindex Citations as bibtex
 We have invested a lot of time and effort in creating BSLTL package, please 
@@ -96,19 +96,19 @@ Some functions inside BSLTL package (filtering functions) depend of signal
 package; at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
 with the next OCTAVE commands.
-@verbatim
-	pkg install -forge control
-	pkg install -forge signal
-@end verbatim
+@example
+pkg install -forge control
+pkg install -forge signal
+@end example
 @cindex Dependencies of Octave-Forge
 
 In operating systems based in GNU/Linux can be necessary install first the 
 library liboctave-dev in the system, given that OCTAVE uses this library to install 
 the control package. The next code is an example of command install in the system.
 
-@verbatim
-	sudo apt-get install liboctave-dev
-@end verbatim
+@example
+sudo apt-get install liboctave-dev
+@end example
 @cindex Dependencies of GNU-Linux
 We have invested a lot of time and effort in creating BSLTL package, please 
 cite it when using it.  See also `citation pkgname' for citing other Octave 
@@ -124,9 +124,9 @@ package with pkgname name.
 @cindex Method 1
 The next OCTAVE code, install the last version of BSLTL package directly from 
 octave-forge website in the default install directory.
-@verbatim
-	pkg install -forge -auto bsltl
-@end verbatim
+@example
+pkg install -forge -auto bsltl
+@end example
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
 @section Method 2: Offline - Only in OCTAVE
@@ -134,10 +134,10 @@ With this method the package is configured for be loaded automatically when OCTA
 The next OCTAVE code, install the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
 in the directory: ~/lib/octmat
 If the BSLTL package was downloaded in the directory: /download_path
-@verbatim
-	pkg prefix ~/lib/octmat
-	pkg install -auto /download_path/bsltl.tar.gz
-@end verbatim
+@example
+pkg prefix ~/lib/octmat
+pkg install -auto /download_path/bsltl.tar.gz
+@end example
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
 @section Method 3: Offline - In MATLAB or OCTAVE
@@ -146,10 +146,10 @@ If the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/b
 was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
-@verbatim
-	BSLTL_DIR='/home/user/lib/octmat/bsltl';
-	addpath(genpath(BSLTL_DIR));
-@end verbatim
+@example
+BSLTL_DIR='/home/user/lib/octmat/bsltl';
+addpath(genpath(BSLTL_DIR));
+@end example
 The function genpath generates a list with the directories and sub directories.
 The function addpath add directories to OCTAVE system path.
 
@@ -167,52 +167,52 @@ of BSLTL library.
 @section Example code of method 1 and 2 - Getting the AVD value of line 240
 @cindex Method 1
 @cindex Method 2
-@verbatim
-	IMAGES_DIR = '/home/user/data/speckle/test1';
+@example
+IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
 
-	THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
-	COM  = coom(THSP);                % Getting the co-occurrence matrix.
-	AVD  = avd(COM);                  % Getting the AVD value.
-@end verbatim
+THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
+COM  = coom(THSP);                % Getting the co-occurrence matrix.
+AVD  = avd(COM);                  % Getting the AVD value.
+@end example
 
 @section Example code of method 3 - Getting the AVD value of column 100
 @cindex Method 3
-@verbatim
-	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
-	addpath(genpath(BSLTL_DIR));
+@example
+BSLTL_DIR = '/home/user/lib/octmat/bsltl';
+addpath(genpath(BSLTL_DIR));
 
-	IMAGES_DIR = '/home/user/data/speckle/test1';
+IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
 
-	THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
-	COM  = coom(THSP);                % Getting the co-occurrence matrix.
-	AVD  = avd(COM);                  % Getting the AVD value.
-@end verbatim
+THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
+COM  = coom(THSP);                % Getting the co-occurrence matrix.
+AVD  = avd(COM);                  % Getting the AVD value.
+@end example
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @node Copyright
 @chapter Copyright
 @verbatim
-	Copyright (c) 2016 BSLTL project group.
+Copyright (c) 2016 BSLTL project group.
 
-	This program is free software; you can redistribute it and/or
-	modify it under the terms of the GNU General Public License as
-	published by the Free Software Foundation; either version 2 of the
-	License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
 	 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 	
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
-	USA.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA.
 @end verbatim
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
