@@ -1,9 +1,10 @@
+\input texinfo
 @c #############################################################################
 @c 
 @c texi2any --html --no-split overview.texi
 @c 
 @c #############################################################################
-\input texinfo
+
 @settitle Biospeckle Laser Tool Library
 
 @copying
