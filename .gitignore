@@ -1,6 +1,6 @@
 ## Our Makefile target.
 /target
-
+*~
 *.dvi
 *.pdf
 *.o

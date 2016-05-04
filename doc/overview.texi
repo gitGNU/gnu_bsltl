@@ -1,21 +1,67 @@
-# BioSpeckle Laser Tool Library (BSLTL)
+@c #############################################################################
+@c 
+@c texi2any --html --no-split overview.texi
+@c 
+@c #############################################################################
+\input texinfo
+@settitle Biospeckle Laser Tool Library
 
-
-## Introduction
-
+@copying
 The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 
-## Citations
+Copyright @copyright{} 2016 Fernando Pujaico Rivera
+@end copying
+
+@documentencoding utf-8
+
+@titlepage
+@title Biospeckle Laser Tool Library (BSLTL)
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@c Output the table of the contents at the beginning.
+@contents
+
+@ifnottex
+@node Top
+@top Introduction
+
+The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
+biospeckle laser technique.
+(version 1.0.X).
+@end ifnottex
+
+@menu
+* Citations::    How to cite the library.
+* Dependencies:: About the dependencies on Package.
+* Installation:: About the intallation methods.
+* Using the BSLTL package:: About as to use the BSLTL package.
+* Copyright::    Legal notice copyright.
+* Versions::     Labeling criteria.
+* BSLTL project group:: Authors.
+* Support or Contact:: Links of interest.
+* Index::        Complete index.
+@end menu
+
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Citations
+@chapter Citations
+
 
 To cite the BSLTL package in publications use:
-
+@verbatim
 	Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
 	BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
 	URL http://www.nongnu.org/bsltl/
+@end verbatim
+@cindex Citations as plain
 
 A BibTeX entry for LaTeX users is:
-
+@verbatim
 	@misc{BSLTL1,
 		author    = {Roberto Alves Braga Júnior and 
 					Fernando Pujaico Rivera and 
@@ -24,73 +70,93 @@ A BibTeX entry for LaTeX users is:
 		year      = {2016},
 		url       = {http://www.nongnu.org/bsltl/}
 	}
-
+@end verbatim
+@cindex Citations as bibtex
 We have invested a lot of time and effort in creating BSLTL package, please 
 cite it when using it.  See also `citation pkgname' for citing other Octave 
 package with pkgname name.
 
-## Dependencies
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Dependencies
+@chapter Dependencies
 
 Some functions inside BSLTL package (filtering functions) depend of signal
 package; at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
 with the next OCTAVE commands.
-
+@verbatim
 	pkg install -forge control
 	pkg install -forge signal
+@end verbatim
+@cindex Dependencies of Octave-Forge
 
 In operating systems based in GNU/Linux can be necessary install first the 
 library liboctave-dev in the system, given that OCTAVE uses this library to install 
 the control package. The next code is an example of command install in the system.
 
+@verbatim
 	sudo apt-get install liboctave-dev
+@end verbatim
+@cindex Dependencies of GNU-Linux
+We have invested a lot of time and effort in creating BSLTL package, please 
+cite it when using it.  See also `citation pkgname' for citing other Octave 
+package with pkgname name.
+
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Installation
+@chapter Installtion
 
 
-## Installation
-
-### Method 1: Online - Only in OCTAVE
-
+@section Method 1: Online - Only in OCTAVE
+@cindex Method 1
 The next OCTAVE code, install the last version of BSLTL package directly from 
 octave-forge website in the default install directory.
-
+@verbatim
 	pkg install -forge -auto bsltl
-
+@end verbatim
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
-### Method 2: Offline - Only in OCTAVE
-
+@section Method 2: Offline - Only in OCTAVE
+@cindex Method 2
 The next OCTAVE code, install the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
 in the directory: ~/lib/octmat
 If the BSLTL package was downloaded in the directory: /download_path
-
+@verbatim
 	pkg prefix ~/lib/octmat
 	pkg install -auto /download_path/bsltl.tar.gz
-
+@end verbatim
 With this method the package is configured for be loaded automatically when OCTAVE start.
 
-### Method 3: Offline - In MATLAB or OCTAVE
-
+@section Method 3: Offline - In MATLAB or OCTAVE
+@cindex Method 3
 If the BSLTL package, [bsltl.tar.gz](http://download.savannah.gnu.org/releases/bsltl/), 
 was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
-
+@verbatim
 	BSLTL_DIR='/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
-
+@end verbatim
 The function genpath generates a list with the directories and sub directories.
 The function addpath add directories to OCTAVE system path.
 
 In this method we install (add to  Octave system path) the BSLTL package each 
 time that we call our source files. 
 
-## Using the BSLTL package
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Using the BSLTL package
+@chapter Using the BSLTL package
 
 Many code examples  can be found in the [homepage](http://www.nongnu.org/bsltl)
 of BSLTL library.
 
-### Example code of method 1 and 2 - Getting the AVD value of line 240
-
+@section Example code of method 1 and 2 - Getting the AVD value of line 240
+@cindex Method 1
+@cindex Method 2
+@verbatim
 	IMAGES_DIR = '/home/user/data/speckle/test1';
 
 	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
@@ -98,9 +164,11 @@ of BSLTL library.
 	THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
 	COM  = coom(THSP);                % Getting the co-occurrence matrix.
 	AVD  = avd(COM);                  % Getting the AVD value.
+@end verbatim
 
-### Example code of method 3 - Getting the AVD value of column 100
-
+@section Example code of method 3 - Getting the AVD value of column 100
+@cindex Method 3
+@verbatim
 	BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 	addpath(genpath(BSLTL_DIR));
 
@@ -111,10 +179,13 @@ of BSLTL library.
 	THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
 	COM  = coom(THSP);                % Getting the co-occurrence matrix.
 	AVD  = avd(COM);                  % Getting the AVD value.
+@end verbatim
 
-
-## Copyright
-
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Copyright
+@chapter Copyright
+@verbatim
 	Copyright (c) 2016 BSLTL project group.
 
 	This program is free software; you can redistribute it and/or
@@ -131,30 +202,54 @@ of BSLTL library.
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
 	USA.
+@end verbatim
 
-## Versions
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Versions
+@chapter Versions
 
 The increment in the version number has a meaning. To a version number 
 with the format 'va.b.c' (by example: v1.0.0).
+@enumerate
+@item
 An increment in 'c' indicates a modification or correction in the code.
+@item
 An increment in 'b' indicates that at least a new function was added in the code.
+@item
 An increment in 'c' is reserved to great modifications in the code.
+@end enumerate
 
-## BSLTL project group - Authors
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node BSLTL project group
+@chapter BSLTL project group
 
-Roberto Alves Braga Júnior <robertobraga@deg.ufla.br>
-Fernando Pujaico Rivera    <fernando.pujaico.rivera@gmail.com> 
-Junio Moreira	           <juniomoreira@iftm.edu.br>
+@enumerate
+@item
+Roberto Alves Braga Júnior @email{robertobraga@@deg.ufla.br}
+@item
+Fernando Pujaico Rivera    @email{fernando.pujaico.rivera@@gmail.com}
+@item
+Junio Moreira	           @email{juniomoreira@@iftm.edu.br}
+@end enumerate
 
-## Support or Contact
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Support or Contact
+@chapter Support or Contact
 
 Having trouble with package? Check out our 
 [documentation](http://www.nongnu.org/bsltl/documentation.html) or 
 [contact support](https://savannah.nongnu.org/mail/?group=bsltl).
 
-## Home Page
-
 [Home page of BSLTL project](http://www.nongnu.org/bsltl/).
 
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Index
+@unnumbered Index
 
+@printindex cp
 
+@bye
