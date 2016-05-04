@@ -57,7 +57,9 @@ $(HTML_DIR): install
 	$(OCTAVE) --no-window-system --silent \
 	  --eval "pkg load generate_html; " \
 	  --eval "pkg load $(PACKAGE);" \
-	  --eval 'generate_package_html ("${PACKAGE}", "$@", "octave-forge");'
+	  --eval 'options = get_html_options ("octave-forge");' \
+	  --eval 'options.package_doc = "overview.texi";' \
+	  --eval 'generate_package_html ("${PACKAGE}", "$@", options);'
 	chmod -R a+rX,u+w,go-w $@
 
 dist: $(RELEASE_TARBALL)
