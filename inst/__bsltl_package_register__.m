@@ -33,7 +33,7 @@ function subdir_paths = __bsltl_package_register__ (loading = 0)
 %%					returns the the remove paths of BSLTL pakage.
 
 	%% Get full path, with luck we can retreive the package name from here
-	base_pkg_path = fileparts (make_absolute_filename (mfilename ("fullpath")));
+	base_pkg_path = fileparts (make_absolute_filename (mfilename ('fullpath')));
 
 	subdir_paths = genpath(fullfile (base_pkg_path, 'mfiles'));
 
