@@ -31,7 +31,7 @@ function [C varargout] = thsp2corr(THSP, varargin)
 %  Correlation type 2 (Pearson correlation):
 %  $corr(A,B)= \frac{E[(A-\mu_A)(B-\mu_B)]}{\sqrt{E[(A-\mu_A)^2]E[(B-\mu_B)^2]}}$
 %
-%  $C(l) = \frac{1}{N/2}\sum\limits_{i=1}^{N/2} CORR(i,l)$, 
+%  $C(l) = \frac{1}{NTIMES/2}\sum\limits_{i=1}^{NTIMES/2} CORR(i,l)$, 
 %
 %  [1] ZiJie Xu, Charles Joenathan, and Brij M. Khorana. 'Temporal and spatial 
 %      properties of the time-varying speckles of botanical specimens'. 
@@ -54,8 +54,8 @@ function [C varargout] = thsp2corr(THSP, varargin)
 %       By default it is used the correlation type 1.
 %
 %  Output: 
-%  C    is the correlation vector, with elements C(j) for all  0<=j<=N/2.
-%  L    is a vector with the times j of C(j). L=[0:N/2].
+%  C    is the correlation vector, with elements C(j) for all  0<=j<=NTIMES/2.
+%  L    is a vector with the times j of C(j). L=[0:NTIMES/2].
 %
 %
 %  For help, bug reports and feature suggestions, please visit:
