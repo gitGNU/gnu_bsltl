@@ -35,7 +35,7 @@ function [C varargout] = thsp2corr(THSP, varargin)
 %
 %  [1] ZiJie Xu, Charles Joenathan, and Brij M. Khorana. 'Temporal and spatial 
 %      properties of the time-varying speckles of botanical specimens'. 
-%      In: Optical Engineering 34.5 (1995), pages 1487–1502. 
+%      In: Optical Engineering 34.5 (1995), pages 1487-1502. 
 %
 %  After starting the main routine just type the following command at the
 %  prompt:
