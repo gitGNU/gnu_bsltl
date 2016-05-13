@@ -1,7 +1,7 @@
 \input texinfo
 @c #############################################################################
 @c 
-@c texi2any --html --no-split overview.texi --css-ref=manual.css  --init-file=overview.init
+@c makeinfo --html --no-split overview.texi --css-ref=manual.css  --init-file=overview.init
 @c 
 @c #############################################################################
 
@@ -54,6 +54,7 @@ etc
 * Dependencies:: About the dependencies of the BSLTL package.
 * Installation:: About the intallation methods.
 * Using the BSLTL package:: About as to use the BSLTL package.
+* Contributing to the package:: How contribute with the package
 * Copyright::    Legal notice copyright.
 * Versions::     Labeling criteria.
 * BSLTL project group:: Authors.
@@ -203,9 +204,64 @@ AVD  = avd(COM);                  % Getting the AVD value.
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@node Contributing to the package
+@chapter Contributing to the package
+
+In the case that you want to include a new function in the library,
+submissions will only be accepted when they have the source code documented
+and they are accompanied by a tutorial 
+(all these should be below General Public License or any compatible).
+The tutorial can be made with Latex, Texinfo, Markdown, etc; or any support that 
+uses plain text.
+
+@section Contributing from mailing list
+
+To contribute to BSLTL package from mailing list,
+you can send a message to the
+@url{https://savannah.nongnu.org/mail/?group=bsltl, mailing list}
+
+@section Contributing through a patch
+
+To contribute to BSLTL package through a patch:
+
+@itemize @bullet
+@item
+Clone the package;
+@item
+Make your changes in the source code;
+@item
+Create the patch;
+@item
+Submit it to the @url{https://savannah.nongnu.org/patch/?func=additem&group=bsltl, patch tracker}.
+@end itemize
+
+See the next example.
+@verbatim
+#Clone the package;
+git clone http://git.savannah.gnu.org/r/bsltl.git
+                            # Make a local copy of BSLTL source repository
+cd bsltl
+
+# You should make your changes here. And later...
+
+git add *
+git commit -m "Here, you describe the modification made."
+                            # Commit the changeset into your local repository.
+
+# Create the patch;
+git format-patch -1 -o ../
+                            # Export the last changeset (commit) to a diff file.
+
+# Attach the created diff file to the patch tracker.
+@end verbatim
+
+Submit the file in the @url{https://savannah.nongnu.org/patch/?func=additem&group=bsltl, patch tracker}.
+
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @node Copyright
 @chapter Copyright
-@verbatim
+@display
 Copyright (c) 2016 BSLTL project group.
 
 This program is free software; you can redistribute it and/or
@@ -222,7 +278,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
 USA.
-@end verbatim
+@end display
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

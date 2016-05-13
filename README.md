@@ -121,6 +121,48 @@ of BSLTL library.
 	COM  = coom(THSP);                % Getting the co-occurrence matrix.
 	AVD  = avd(COM);                  % Getting the AVD value.
 
+## Contributing to the package
+
+In the case that you want to include a new function in the library,
+submissions will only be accepted when they have the source code documented
+and they are accompanied by a tutorial 
+(all these should be below General Public License or any compatible).
+The tutorial can be made with Latex, Texinfo, Markdown, or any support that 
+uses plain text.
+
+### Contributing from mailing list
+To contribute to BSLTL package from mailing list,
+you can send a message to the
+[mailing list](https://savannah.nongnu.org/mail/?group=bsltl)
+
+### Contributing through a patch
+To contribute to BSLTL package through a patch:
+
+* Clone the package;
+* Make your changes in the source code;
+* Create the patch;
+* Submit it to the [patch tracker](https://savannah.nongnu.org/patch/?func=additem&group=bsltl).
+
+See the next example.
+
+	#Clone the package;
+	git clone http://git.savannah.gnu.org/r/bsltl.git
+								# Make a local copy of BSLTL source repository
+	cd bsltl
+	
+	# You should make your changes here. And later...
+	
+	git add *
+	git commit -m "Here, you describe the modification made."
+								# Commit the changeset into your local repository.
+	
+	# Create the patch;
+	git format-patch -1 -o ../
+								# Export the last changeset (commit) to a diff file.
+	
+	# Attach the created diff file to the patch tracker.
+
+Submit the file in the [patch tracker](https://savannah.nongnu.org/patch/?func=additem&group=bsltl).
 
 ## Copyright
 
