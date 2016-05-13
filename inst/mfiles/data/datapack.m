@@ -18,25 +18,37 @@
 
 function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 %  This function creates a data pack (3D matrix) from a set of images in a directory. 
-%  All imagesshould have the same size and format.
+%  All images should have the same number of lines and columns, and similar format.
 %
 %  After starting the main routine just type the following command at the
 %  prompt:
 %  DATA = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT);
-%  DATA = datapack('/user/images/sample1','',1,333,'bmp');
+%
+%  %% To filenames: 'seed1.bmp', 'seed2,bmp', ..., 'seed128.bmp'
+%  DATA = datapack('/user/images/sample1','seed',1,128,'bmp');
+%
+%  %% To filenames: 'img1coffee.bmp', 'img2coffee,bmp', ..., 'img100coffee.bmp'
+%  DATA = datapack('/user/images/sample1','img%dcoffee',1,100,'bmp');
+%
+%  %% To filenames: 'img0001.bmp', 'img0002,bmp', ..., 'img0123.bmp'
+%  DATA = datapack('/user/images/sample1','img%04d',1,123,'bmp');
 %
 %  Input:
 %  IMGDIR  is a directory path where the images are, with format names as
-%          NAME=[IMGNAME,IMGN,'.',IMGFMT], being IMGN an integer from  
-%          IMGN1 until IMGN2.
-%  IMGNAME is the pre-filename, example: if the files in IMGDIR have names as 
-%          'fig1.bmp', then IMGNAME='fig'.
+%          NAME=[IMGNAME,'.',IMGFMT].
+%  IMGNAME is the format filename, example: if the files in IMGDIR have names as 
+%          'fig1.bmp', then IMGNAME='fig' or IMGNAME='fig%d'. If IMGNAME not
+%          contain a format specifiers of family %d, them this format specifiers 
+%          is added at the final of IMGNAME string. The format string is similar
+%          to the function printf of others programming languages.
+%          Only are permitted format specifiers of family %d, given that will
+%          be replaced a decimal number.
 %  IMGN1   is the index of the first image, example: if the files have names from 
 %          'fig1.bmp' until 'fig4.bmp', then IMGN1=1.
 %  IMGN2   is the index of the last image, example: if the files have names from 
 %          'fig1.bmp' until 'fig4.bmp', then IMGN2=4.
-%  IMGFMT  is the file format of the image files, example: if the files have names 
-%          as 'fig1.bmp', then IMGFMT='bmp'. 
+%  IMGFMT  is the filetype of the image files, example: if the files have names 
+%          as 'fig1.bmp', then IMGFMT='bmp'. Current is only permitted IMGFMT='bmp'.
 %  LPOS    [Optional] This value is optional. It is the first line position for a window
 %          analysis.
 %  CPOS    [Optional] This value is optional. It is the first column position for a window
@@ -63,7 +75,7 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 %  Code reviewed by:   Roberto A Braga Jr <robertobraga@deg.ufla.br>
 %
 %  Date:   09 of May of 2013.
-%  Review: 25 of february of 2016.
+%  Review: 13 of March of 2016.
 %
 
 	% Verify the presence of 9 parameters
