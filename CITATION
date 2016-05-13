@@ -8,7 +8,7 @@ A BibTeX entry for LaTeX users is:
 
 	@misc{BSLTL,
 		author    = { Braga J\'unior, Roberto Alves and  
-					Pujaico Rivera,Fernando and 
+					Pujaico Rivera, Fernando and 
 					Moreira, Junio},
 		title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.1},
 		year      = {2016},

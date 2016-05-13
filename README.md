@@ -16,16 +16,16 @@ Implemented technics:
 To cite the BSLTL package in publications use:
 
 	Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-	BSLTL: Biospeckle Laser Tool Library - version 1.0.0.
+	BSLTL: Biospeckle Laser Tool Library - version 1.0.1.
 	URL http://www.nongnu.org/bsltl/
 
 A BibTeX entry for LaTeX users is:
 
 	@misc{BSLTL1,
-		author    = {Roberto Alves Braga Júnior and 
-					Fernando Pujaico Rivera and 
-					Junio Moreira},
-		title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.0},
+		author    = {Braga J\'unior, Roberto Alves and 
+					Pujaico Rivera, Fernando and 
+					Moreira, Junio},
+		title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.1},
 		year      = {2016},
 		url       = {http://www.nongnu.org/bsltl/}
 	}
