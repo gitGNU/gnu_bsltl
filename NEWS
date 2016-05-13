@@ -1,4 +1,16 @@
 ===============================================================================
+bsltl-1.0.1   Release Date: 2016-05-13   Release Manager: Fernando Pujaico R.
+===============================================================================
+** Added texinfo overview and consequently overview.html.
+** datapack.m function got a new characteristic in your second parameter.
+   Now is possible load images with the format: 
+   img0001.bmp, img0002.bmp, ..., img0009.bmp, img0010.bmp, img0011.bmp. 
+   using the command: DATA=datapack(IMAGESDIR,'img%04d',1,12,'bmp');
+** thsp.m function got a new characteristic in your second parameter.
+   Now R=1 and R='line' select a line in the datapack. Similarly, 
+   R=2 and R='column' select a column in the datapack.
+
+===============================================================================
 bsltl-1.0.0   Release Date: 2016-04-22   Release Manager: Fernando Pujaico R.
 ===============================================================================
  ** Begin - version 1.0.0 of BSLTL.
