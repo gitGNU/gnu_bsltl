@@ -19,7 +19,7 @@
 function [Y] = thsp(DATA,R,S)
 %
 %  This function creates the THSP (Time History Speckle Pattern)[1][2] of a set 
-%  of pixels in a line in a data pack (DATA).
+%  of pixels in a line or column of a datapack (DATA).
 %
 %  References:
 %  [1]  OULOMARA, G.; TRIBILLON, J.; DUVERNOY, J. Biological activity measurements 
@@ -34,6 +34,10 @@ function [Y] = thsp(DATA,R,S)
 %  After starting the main routine just type the following command at the
 %  prompt:
 %  Y = thsp(DATA,R,S);
+%  Y = thsp(DATA,'line',100);   % THSP matrix with the line 100 of datapack.
+%  Y = thsp(DATA,1,100);        % THSP matrix with the line 100 of datapack.
+%  Y = thsp(DATA,'column',100); % THSP matrix with the column 100 of datapack.
+%  Y = thsp(DATA,2,100);        % THSP matrix with the column 100 of datapack.
 %  
 %  Input:
 %  DATA is the speckle data pack. Where DATA is a 3D matrix created grouping NTIMES 
@@ -42,9 +46,9 @@ function [Y] = thsp(DATA,R,S)
 %       N(1,2) represents NCOL and
 %       N(1,3) represents NTIMES.
 %  R    is a parameter of analysis: 
-%       if R is equal to 1, you choose the lines of images to create the THSP and
-%       if R is equal to 2, you choose the columns of images to create the THSP.
-%       In other case it returns error.
+%       if R is equal to 1 or 'line', you choose the lines of images to create the THSP and
+%       if R is equal to 2 or 'column', you choose the columns of images to create the THSP.
+%       In other cases the function returns error.
 %  S    is the line or column position used to make the time history speckle patterns.
 %       The function do not verify if S is in the  possible range, this check must be done by the user.
 %
@@ -70,12 +74,12 @@ function [Y] = thsp(DATA,R,S)
 %
     a = size(DATA);
               
-    if R == 1             
+    if ((R == 1) || strcmp(R,'line'))
         Y = zeros(a(1,2),a(1,3));
         for b = 1:a(1,3)            
             Y(:,b) = (DATA(S,:,b))';
         end
-    elseif R == 2        
+    elseif ((R == 2) || strcmp(R,'column'))
         Y = zeros(a(1,1),a(1,3));
         for b = 1:a(1,3)
             Y(:,b) = DATA(:,S,b);
