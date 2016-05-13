@@ -68,11 +68,11 @@ etc
 
 
 To cite the BSLTL package in publications use:
-@verbatim
+@display
 Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-BSLTL: Biospeckle Laser Tool Library - version 1.0.1.
+BSLTL: Biospeckle Laser Tool Library - version @value{VERSION}.
 URL http://www.nongnu.org/bsltl/
-@end verbatim
+@end display
 @cindex Citations as plain
 
 A BibTeX entry for LaTeX users is:
