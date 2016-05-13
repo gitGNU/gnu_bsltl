@@ -93,6 +93,10 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 
 	end
 
+	if(strcmp(IMGFMT,'bmp')==0)
+		error('5th parameter should be equal to string: bmp');
+	end
+
 	IMGN1=round(IMGN1);
 	IMGN2=round(IMGN2);
 
@@ -101,14 +105,11 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 		error(['No exist directory: ', IMGDIR]);
 	end
 
-	if(isunix()||ismac())
-		BARRA='/';
-	else
-		BARRA='\';
+	if(length(strfind(IMGNAME,'%'))==0)
+		IMGNAME=[IMGNAME,'%d'];
 	end
-
-	PRENAME=[IMGDIR,BARRA,IMGNAME];
-	FIRSTFILE=[PRENAME,num2str(IMGN1),'.',IMGFMT];
+	PRENAME=[IMGNAME,'.',IMGFMT];
+	FIRSTFILE=fullfile(IMGDIR,sprintf(PRENAME,IMGN1));
 
 	%Verify if at least the first file exists
 	if(exist(FIRSTFILE)~=2)
@@ -159,7 +160,7 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 
         DATA = zeros(Nlines,Ncolumns,numImages);
         for II = 1:numImages
-            nome = [PRENAME,num2str(IMGN1+II-1),'.',IMGFMT];
+            nome = fullfile(IMGDIR,sprintf(PRENAME,IMGN1+II-1));
             DATA(:,:,II) = imread(nome);            
         end
 
@@ -167,7 +168,7 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 
         DATA = zeros(NLIN,NCOL,numImages);
         for II = 1:numImages
-            nome = [PRENAME,num2str(IMGN1+II-1),'.',IMGFMT];
+            nome = fullfile(IMGDIR,sprintf(PRENAME,IMGN1+II-1));
             TODO= imread(nome);
             DATA(:,:,II) = TODO(LPOS:(NLIN+LPOS-1),CPOS:(NCOL+CPOS-1));
         end    
