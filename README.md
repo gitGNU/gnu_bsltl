@@ -36,13 +36,15 @@ package with pkgname name.
 
 ## Dependencies
 
-Some functions inside BSLTL package (filtering functions) depend of signal
-package; at the same time the signal package depends of control package.
+### Octave dependencies
+Some functions inside BSLTL package depend of signal package and image package;
+at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
-with the next OCTAVE commands.
+with the following online OCTAVE installation commands.
 
 	pkg install -forge control
 	pkg install -forge signal
+	pkg install -forge image
 
 In operating systems based in GNU/Linux can be necessary install first the 
 library liboctave-dev in the system, given that OCTAVE uses this library to install 
@@ -98,7 +100,8 @@ of BSLTL library.
 
 	IMAGES_DIR = '/home/user/data/speckle/test1';
 
-	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images. 
+												% '1.bmp', '2.bmp', ...
 
 	THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
 	COM  = coom(THSP);                % Getting the co-occurrence matrix.
@@ -112,6 +115,7 @@ of BSLTL library.
 	IMAGES_DIR = '/home/user/data/speckle/test1';
 
 	DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
+												% '1.bmp', '2.bmp', ...
 
 	THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
 	COM  = coom(THSP);                % Getting the co-occurrence matrix.
@@ -153,7 +157,7 @@ Junio Moreira	           <juniomoreira@iftm.edu.br>
 
 ## Support or Contact
 
-Having trouble with package? Check out our 
+Having trouble with the package? Check out our 
 [documentation](http://www.nongnu.org/bsltl/documentation.html) or 
 [contact support](https://savannah.nongnu.org/mail/?group=bsltl).
 
