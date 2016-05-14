@@ -3,7 +3,7 @@
 <!-- The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 Copyright (C) 2016 Fernando Pujaico Rivera -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Biospeckle Laser Tool Library</title>
 
@@ -20,16 +20,16 @@ Copyright (C) 2016 Fernando Pujaico Rivera -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -38,10 +38,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -59,7 +58,7 @@ ul.no-bullet {list-style: none}
 	</div><br>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <h1 class="settitle" align="center">Biospeckle Laser Tool Library</h1>
 
 
@@ -234,7 +233,8 @@ octave-forge website in the default install directory.
 <a name="Method-2_003a-Offline-_002d-Only-in-OCTAVE"></a>
 <h3 class="section">3.2 Method 2: Offline - Only in OCTAVE</h3>
 <a name="index-Method-2"></a>
-<p>The next OCTAVE code, install the BSLTL package, <a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.1.tar.gz</a>, 
+<p>The next OCTAVE code, install the BSLTL package, 
+<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.1.tar.gz</a>, 
 in the directory: ~/lib/octmat
 </p>
 <p>If the BSLTL package was downloaded in the directory: /download_path
@@ -318,48 +318,37 @@ Next: <a href="#Copyright" accesskey="n" rel="next">Copyright</a>, Previous: <a 
 submissions will only be accepted when they have the source code documented
 and they are accompanied by a tutorial 
 (all these should be below General Public License or any compatible).
-The tutorial can be made with Latex, Texinfo, Markdown, etc; or any support that 
+The tutorial can be made with Latex, Texinfo, Markdown, or any support that 
 uses plain text.
 </p>
 <a name="Contributing-from-mailing-list"></a>
 <h3 class="section">5.1 Contributing from mailing list</h3>
 
-<p>To contribute to BSLTL package from mailing list,
-you can send a message to the
+<p>To contribute to the BSLTL package using your email account,
+you can send your proposal to the
 <a href="https://savannah.nongnu.org/mail/?group=bsltl">mailing list</a>
 </p>
 <a name="Contributing-through-a-patch"></a>
 <h3 class="section">5.2 Contributing through a patch</h3>
 
-<p>To contribute to BSLTL package through a patch:
+<p>To contribute to the BSLTL package through a patch:
 </p>
 <ul>
-<li> Clone the package;
-</li><li> Make your changes in the source code;
-</li><li> Create the patch;
-</li><li> Submit it to the <a href="https://savannah.nongnu.org/patch/?func=additem&amp;group=bsltl">patch tracker</a>.
+<li> Clone the package; making a local copy of BSLTL source repository;
+<pre class="verbatim">git clone http://git.savannah.gnu.org/r/bsltl.git
+
+cd bsltl
+</pre></li><li> Make your changes in the source code;
+</li><li> Commit the changeset into your local repository;
+<pre class="verbatim">git add *
+
+git commit -m &quot;Here, you describe the modification made.&quot;
+</pre></li><li> Create the patch; export the last changeset (commit) to a diff file;
+<pre class="verbatim">git format-patch -1 -o ../
+</pre></li><li> Submit it to the <a href="https://savannah.nongnu.org/patch/?func=additem&amp;group=bsltl">patch tracker</a>.
 </li></ul>
 
-<p>See the next example.
-</p><pre class="verbatim">#Clone the package;
-git clone http://git.savannah.gnu.org/r/bsltl.git
-                            # Make a local copy of BSLTL source repository
-cd bsltl
 
-# You should make your changes here. And later...
-
-git add *
-git commit -m &quot;Here, you describe the modification made.&quot;
-                            # Commit the changeset into your local repository.
-
-# Create the patch;
-git format-patch -1 -o ../
-                            # Export the last changeset (commit) to a diff file.
-
-# Attach the created diff file to the patch tracker.
-</pre>
-<p>Submit the file in the <a href="https://savannah.nongnu.org/patch/?func=additem&amp;group=bsltl">patch tracker</a>.
-</p>
 <hr>
 <a name="Copyright"></a>
 <div class="header">

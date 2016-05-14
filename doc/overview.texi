@@ -1,7 +1,7 @@
 \input texinfo
 @c #############################################################################
 @c 
-@c makeinfo --html --no-split overview.texi --css-ref=manual.css  --init-file=overview.init
+@c makeinfo --html overview.texi --no-split --css-ref=manual.css  --init-file=overview.init
 @c 
 @c #############################################################################
 
@@ -138,7 +138,8 @@ With this method the package is configured for be loaded automatically when OCTA
 
 @section Method 2: Offline - Only in OCTAVE
 @cindex Method 2
-The next OCTAVE code, install the BSLTL package, @url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}, 
+The next OCTAVE code, install the BSLTL package, 
+@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}, 
 in the directory: ~/lib/octmat
 
 If the BSLTL package was downloaded in the directory: /download_path
@@ -211,51 +212,45 @@ In the case that you want to include a new function in the library,
 submissions will only be accepted when they have the source code documented
 and they are accompanied by a tutorial 
 (all these should be below General Public License or any compatible).
-The tutorial can be made with Latex, Texinfo, Markdown, etc; or any support that 
+The tutorial can be made with Latex, Texinfo, Markdown, or any support that 
 uses plain text.
 
 @section Contributing from mailing list
 
-To contribute to BSLTL package from mailing list,
-you can send a message to the
+To contribute to the BSLTL package using your email account,
+you can send your proposal to the
 @url{https://savannah.nongnu.org/mail/?group=bsltl, mailing list}
 
 @section Contributing through a patch
 
-To contribute to BSLTL package through a patch:
+To contribute to the BSLTL package through a patch:
 
 @itemize @bullet
 @item
-Clone the package;
+Clone the package; making a local copy of BSLTL source repository;
+@verbatim
+git clone http://git.savannah.gnu.org/r/bsltl.git
+
+cd bsltl
+@end verbatim
 @item
 Make your changes in the source code;
 @item
-Create the patch;
+Commit the changeset into your local repository;
+@verbatim
+git add *
+
+git commit -m "Here, you describe the modification made."
+@end verbatim
+@item
+Create the patch; export the last changeset (commit) to a diff file;
+@verbatim
+git format-patch -1 -o ../
+@end verbatim
 @item
 Submit it to the @url{https://savannah.nongnu.org/patch/?func=additem&group=bsltl, patch tracker}.
 @end itemize
 
-See the next example.
-@verbatim
-#Clone the package;
-git clone http://git.savannah.gnu.org/r/bsltl.git
-                            # Make a local copy of BSLTL source repository
-cd bsltl
-
-# You should make your changes here. And later...
-
-git add *
-git commit -m "Here, you describe the modification made."
-                            # Commit the changeset into your local repository.
-
-# Create the patch;
-git format-patch -1 -o ../
-                            # Export the last changeset (commit) to a diff file.
-
-# Attach the created diff file to the patch tracker.
-@end verbatim
-
-Submit the file in the @url{https://savannah.nongnu.org/patch/?func=additem&group=bsltl, patch tracker}.
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
