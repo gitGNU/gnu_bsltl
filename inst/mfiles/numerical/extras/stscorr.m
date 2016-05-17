@@ -76,6 +76,7 @@ function [C varargout] = stscorr(DATA,Tau,K0)
 
     NSIZE = size(DATA);
     NTIMES=NSIZE(1,3);
+    NEL=NSIZE(1,1)*NSIZE(1,2);
   
 	C = zeros(1,NTIMES);
 
@@ -84,7 +85,7 @@ function [C varargout] = stscorr(DATA,Tau,K0)
 
     
     for KK = 1:NTIMES
-        C(KK) = corr2( DATA(:,:,K0) , DATA(:,:,KK) );
+        C(KK) = corr( reshape(DATA(:,:,K0),[NEL 1]) , reshape(DATA(:,:,KK),[NEL 1]) );
     end
 
 	if (nargout>=2)
