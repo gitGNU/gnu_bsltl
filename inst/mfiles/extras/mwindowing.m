@@ -81,7 +81,7 @@ function MATW = mwindowing(MAT,WLines,WColumns)
 			LINES   = lin:lin+(WLines-1);
 			COLUMNS = col:col+(WColumns-1);
 
-			MEANVAL  = mean2(MAT(LINES,COLUMNS)); 
+			MEANVAL  = mean(mean(MAT(LINES,COLUMNS))); 
 
 			MATW(LINES,COLUMNS)  = MEANVAL;
     	end	

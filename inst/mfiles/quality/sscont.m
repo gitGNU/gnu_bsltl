@@ -89,11 +89,11 @@ function [C,mC] = sscont(DATAFRAME,WLines,WColumns)
 
             Z = DATAFRAME(LINES,COLUMNS);
 
-            C(LINES,COLUMNS) = std(reshape(Z,1,TOTAL),1)/(mean2(Z)+eps);
+            C(LINES,COLUMNS) = std(reshape(Z,1,TOTAL),1)/(mean(mean(Z))+eps);
     end        
     end
     
-    mC = mean2(C);
+    mC = mean(mean(C));
 
     figure(1);    
     imagesc(C);   colorbar

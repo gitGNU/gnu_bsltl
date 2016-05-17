@@ -138,7 +138,7 @@ function [Y X] = homogeneity(DATA,WLines  ,WColumns,Type)
 			LINES   = lin:lin+(WLines-1);
 			COLUMNS = col:col+(WColumns-1);
 
-			AVD  = mean2(GMETHOD(LINES,COLUMNS)); 
+			AVD  = mean(mean(GMETHOD(LINES,COLUMNS))); 
 
 			X(LINES,COLUMNS)  = AVD;
 			H(II,JJ)          = AVD;
