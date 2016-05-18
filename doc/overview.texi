@@ -37,11 +37,13 @@ biospeckle laser technique.(version @value{VERSION}).
 Implemented technics:
 @itemize @bullet
 @item
-@math{ AVD=\sum_{i,j} NCOM(i,j) |i-j| }
+Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
 @item
-@math{ IM =\sum_{i,j} NCOM(i,j) |i-j|^2 }
+Numerical methods: AVD, IM, COM, THSP, RVD, Corr, etc.
 @item
-@math{ FUJII=\sum_{i} \frac{|I_{i}-I_{i-1}|}{I_{i}+I_{i-1}} }
+Filtering
+@item
+Quality test
 @item
 etc
 @end itemize
@@ -71,7 +73,7 @@ etc
 To cite the BSLTL package in publications use:
 @display
 Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-BSLTL: Biospeckle Laser Tool Library - version @value{VERSION}.
+BSLTL: Biospeckle Laser Tool Library.
 URL http://www.nongnu.org/bsltl/
 @end display
 @cindex Citations as plain
@@ -82,7 +84,7 @@ A BibTeX entry for LaTeX users is:
     author    = {Braga J\'unior, Roberto Alves and 
                 Pujaico Rivera, Fernando and 
                 Moreira, Junio},
-    title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.1},
+    title     = {{BSLTL:} Biospeckle Laser Tool Library},
     year      = {2016},
     url       = {http://www.nongnu.org/bsltl/}
 }
@@ -98,28 +100,25 @@ package with pkgname name.
 @chapter Dependencies
 
 @section Octave dependencies
-Some functions inside BSLTL package depend of signal package and image package;
+Some functions inside BSLTL package depend of signal package;
 at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
 with the following online OCTAVE installation commands.
 @example
 pkg install -forge control
 pkg install -forge signal
-pkg install -forge image
 @end example
 @cindex Dependencies of Octave-Forge
 
 In operating systems based in GNU/Linux can be necessary install first the 
-library @code{liboctave-dev} in the system, given that OCTAVE uses this library to install 
-the control package. The next code is an example of command install in the system.
+library @code{liboctave-dev} in the system, given that OCTAVE uses this library 
+to install the control package. The next code is an example (Ubuntu/Debian) of 
+command install in the system.
 
 @verbatim
 sudo apt-get install liboctave-dev
 @end verbatim
 @cindex Dependencies of GNU-Linux
-We have invested a lot of time and effort in creating BSLTL package, please 
-cite it when using it.  See also `citation pkgname' for citing other Octave 
-package with pkgname name.
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,12 +178,14 @@ of BSLTL library.
 @example
 IMAGES_DIR = '/home/user/data/speckle/test1';
 
-DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
-                                            % '1.bmp', '2.bmp', ...
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
+                                               % 'img1.bmp', 'img2.bmp', 
+                                               % ...       , ...       ,
+                                               % 'img128.bmp', 'img129.bmp'.
 
-THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
-COM  = coom(THSP);                % Getting the co-occurrence matrix.
-AVD  = avd(COM);                  % Getting the AVD value.
+THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
+COM  = coom(THSP);              % Getting the co-occurrence matrix.
+AVD  = avd(COM);                % Getting the AVD value.
 @end example
 
 @section Example code of method 3 - Getting the AVD value of column 100
@@ -195,12 +196,14 @@ addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
 
-DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
-                                            % '1.bmp', '2.bmp', ...
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
+                                               % 'img1.bmp', 'img2.bmp', 
+                                               % ...       , ...       ,
+                                               % 'img128.bmp', 'img129.bmp'.
 
-THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
-COM  = coom(THSP);                % Getting the co-occurrence matrix.
-AVD  = avd(COM);                  % Getting the AVD value.
+THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
+COM  = coom(THSP);              % Getting the co-occurrence matrix.
+AVD  = avd(COM);                % Getting the AVD value.
 @end example
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

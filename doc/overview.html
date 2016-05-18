@@ -3,7 +3,7 @@
 <!-- The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 Copyright (C) 2016 Fernando Pujaico Rivera -->
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Biospeckle Laser Tool Library</title>
 
@@ -20,16 +20,16 @@ Copyright (C) 2016 Fernando Pujaico Rivera -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -38,9 +38,10 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -58,7 +59,7 @@ ul.no-bullet {list-style: none}
 	</div><br>
 </head>
 
-<body lang="en">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <h1 class="settitle" align="center">Biospeckle Laser Tool Library</h1>
 
 
@@ -115,9 +116,10 @@ biospeckle laser technique.(version 1.0.1).
 </p>
 <p>Implemented technics:
 </p><ul>
-<li> <em>AVD=\sum_{i,j} NCOM(i,j) |i-j| </em>
-</li><li> <em>IM =\sum_{i,j} NCOM(i,j) |i-j|^2 </em>
-</li><li> <em>FUJII=\sum_{i} \frac{|I_{i}-I_{i-1}|}{I_{i}+I_{i-1}} </em>
+<li> Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
+</li><li> Numerical methods: AVD, IM, COM, THSP, RVD, Corr, etc.
+</li><li> Filtering
+</li><li> Quality test
 </li><li> etc
 </li></ul>
 
@@ -159,7 +161,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 <p>To cite the BSLTL package in publications use:
 </p><div class="display">
 <pre class="display">Roberto Alves Braga Júnior, Fernando Pujaico Rivera and Junio Moreira (2016).
-BSLTL: Biospeckle Laser Tool Library - version 1.0.1.
+BSLTL: Biospeckle Laser Tool Library.
 URL http://www.nongnu.org/bsltl/
 </pre></div>
 <a name="index-Citations-as-plain"></a>
@@ -169,7 +171,7 @@ URL http://www.nongnu.org/bsltl/
     author    = {Braga J\'unior, Roberto Alves and 
                 Pujaico Rivera, Fernando and 
                 Moreira, Junio},
-    title     = {{BSLTL:} Biospeckle Laser Tool Library - version 1.0.1},
+    title     = {{BSLTL:} Biospeckle Laser Tool Library},
     year      = {2016},
     url       = {http://www.nongnu.org/bsltl/}
 }
@@ -189,27 +191,24 @@ Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previou
 
 <a name="Octave-dependencies"></a>
 <h3 class="section">2.1 Octave dependencies</h3>
-<p>Some functions inside BSLTL package depend of signal package and image package;
+<p>Some functions inside BSLTL package depend of signal package;
 at the same time the signal package depends of control package.
 Thus, we recommend install first the control package and later the signal package
 with the following online OCTAVE installation commands.
 </p><div class="example">
 <pre class="example">pkg install -forge control
 pkg install -forge signal
-pkg install -forge image
 </pre></div>
 <a name="index-Dependencies-of-Octave_002dForge"></a>
 
 <p>In operating systems based in GNU/Linux can be necessary install first the 
-library <code>liboctave-dev</code> in the system, given that OCTAVE uses this library to install 
-the control package. The next code is an example of command install in the system.
+library <code>liboctave-dev</code> in the system, given that OCTAVE uses this library 
+to install the control package. The next code is an example (Ubuntu/Debian) of 
+command install in the system.
 </p>
 <pre class="verbatim">sudo apt-get install liboctave-dev
 </pre><a name="index-Dependencies-of-GNU_002dLinux"></a>
-<p>We have invested a lot of time and effort in creating BSLTL package, please 
-cite it when using it.  See also &lsquo;citation pkgname&rsquo; for citing other Octave 
-package with pkgname name.
-</p>
+
 <hr>
 <a name="Installation"></a>
 <div class="header">
@@ -280,12 +279,14 @@ of BSLTL library.
 <div class="example">
 <pre class="example">IMAGES_DIR = '/home/user/data/speckle/test1';
 
-DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
-                                            % '1.bmp', '2.bmp', ...
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
+                                               % 'img1.bmp', 'img2.bmp', 
+                                               % ...       , ...       ,
+                                               % 'img128.bmp', 'img129.bmp'.
 
-THSP = thsp(DATA,1,240);          % Getting the time history speckle pattern.
-COM  = coom(THSP);                % Getting the co-occurrence matrix.
-AVD  = avd(COM);                  % Getting the AVD value.
+THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
+COM  = coom(THSP);              % Getting the co-occurrence matrix.
+AVD  = avd(COM);                % Getting the AVD value.
 </pre></div>
 
 <a name="Example-code-of-method-3-_002d-Getting-the-AVD-value-of-column-100"></a>
@@ -297,12 +298,14 @@ addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
 
-DATA = datapack(IMAGES_DIR,'',1,129,'bmp'); % Datapack of 129 images.
-                                            % '1.bmp', '2.bmp', ...
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
+                                               % 'img1.bmp', 'img2.bmp', 
+                                               % ...       , ...       ,
+                                               % 'img128.bmp', 'img129.bmp'.
 
-THSP = thsp(DATA,2,100);          % Getting the time history speckle pattern.
-COM  = coom(THSP);                % Getting the co-occurrence matrix.
-AVD  = avd(COM);                  % Getting the AVD value.
+THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
+COM  = coom(THSP);              % Getting the co-occurrence matrix.
+AVD  = avd(COM);                % Getting the AVD value.
 </pre></div>
 
 <hr>
