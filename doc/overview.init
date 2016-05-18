@@ -12,7 +12,9 @@ set_from_init_file('EXTRA_HEAD', "\
        	<a href=\"https://savannah.nongnu.org/projects/bsltl/\" target=\"_blank\">Develop</a>\
 	</div><br>");
 
-
+set_from_init_file('EXTRA_HEAD', "\
+  <STYLE> #jsMath_Warning {display: none} </STYLE>\
+  <SCRIPT SRC=\"../../jsMath/easy/load.js\"></SCRIPT>");
 
 
 

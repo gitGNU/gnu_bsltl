@@ -48,15 +48,8 @@ ul.no-bullet {list-style: none}
 <link rel="stylesheet" type="text/css" href="manual.css">
 
 
-	<div class="top-nav darkblock">
-       	<a href="http://www.nongnu.org/bsltl/index.html">Home</a> |
-       	<a href="http://www.nongnu.org/bsltl/documentation.html">Documentation</a> |
-       	<a href="http://www.nongnu.org/bsltl/overview.html">Overview</a> |
-       	<a href="http://www.nongnu.org/bsltl/examples.html">Examples</a> |
-       	<a href="http://git.savannah.gnu.org/cgit/bsltl.git/tree/" target="_blank">Code</a> |
-       	<a href="http://download.savannah.gnu.org/releases/bsltl/" target="_blank">Download</a> |
-       	<a href="https://savannah.nongnu.org/projects/bsltl/" target="_blank">Develop</a>
-	</div><br>
+  <STYLE> #jsMath_Warning {display: none} </STYLE>
+  <SCRIPT SRC="../../jsMath/easy/load.js"></SCRIPT>
 </head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -117,12 +110,19 @@ biospeckle laser technique.(version 1.0.1).
 <p>Implemented technics:
 </p><ul>
 <li> Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
-</li><li> Numerical methods: AVD, IM, COM, THSP, RVD, Corr, etc.
+<em>$$FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}$$</em> 
+<em>$$GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|$$</em> 
+<em>$$Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]$$</em> 
+<em>$$Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }$$</em> 
+
+</li><li> Numerical methods: AVD, IM, NCOM, THSP, RVD, Corr, etc.
+<em>$$AVD=\sum \limits_{ij} NCOM(i,j)|i-j|$$</em> 
+<em>$$IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2$$</em> 
+<em>$$RVD=\sum \limits_{ij} NCOM(i,j)(i-j)$$</em> 
 </li><li> Filtering
 </li><li> Quality test
 </li><li> etc
 </li></ul>
-
 
 
 <table class="menu" border="0" cellspacing="0">
