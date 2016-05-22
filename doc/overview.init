@@ -1,7 +1,7 @@
 use strict;
 
 
-set_from_init_file('EXTRA_HEAD', "\
+set_from_init_file('AFTER_BODY_OPEN', "\
 	<div class=\"top-nav darkblock\">\
        	<a href=\"http://www.nongnu.org/bsltl/index.html\">Home</a> |\
        	<a href=\"http://www.nongnu.org/bsltl/documentation.html\">Documentation</a> |\
@@ -10,7 +10,7 @@ set_from_init_file('EXTRA_HEAD', "\
        	<a href=\"http://git.savannah.gnu.org/cgit/bsltl.git/tree/\" target=\"_blank\">Code</a> |\
        	<a href=\"http://download.savannah.gnu.org/releases/bsltl/\" target=\"_blank\">Download</a> |\
        	<a href=\"https://savannah.nongnu.org/projects/bsltl/\" target=\"_blank\">Develop</a>\
-	</div><br>");
+	</div><br>\n\n");
 
 set_from_init_file('EXTRA_HEAD', "\
   <STYLE> #jsMath_Warning {display: none} </STYLE>\
