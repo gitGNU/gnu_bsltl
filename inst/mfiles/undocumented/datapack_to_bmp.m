@@ -21,16 +21,24 @@ function h=datapack_to_bmp(DATA,DIRECTORY,PRENAME)
 %  This function save the images inside of datapack in a set of BMP files.
 %  The formation rule of the BMP file names is:
 %
-%  If DIRECTORY have length >0
-%      COMPLETE_NAME=[DIRECTORY,filesep,PRENAME,num2str(II),'.bmp'];
-%  In the other case
-%      COMPLETE_NAME=[PRENAME,num2str(II),'.bmp'];
+%  NAME=fullfile(DIRECTORY,sprintf([PRENAME,'.bmp'],II));
 %
 %  Being II, the number of the saved image.
 %
 %  After starting the main routine just type the following command at the
 %  prompt:
+%
 %  h = datapack_to_bmp(DATA,DIRECTORY,PRENAME);
+%
+%  %% To filenames: 'seed1.bmp', 'seed2,bmp', ..., 'seed128.bmp'
+%  h = datapack_to_bmp(DATA,'','seed%d');
+%
+%  %% To filenames: 'img1coffee.bmp', 'img2coffee,bmp', ..., 'img100coffee.bmp'
+%  h = datapack_to_bmp(DATA,'','img%dcoffee');
+%
+%  %% To filenames: 'img0001.bmp', 'img0002,bmp', ..., 'img0123.bmp'
+%  h = datapack_to_bmp(DATA,'','img%04d');
+%
 %  
 %  Input:
 %  DATA      is the speckle data pack. Where DATA is a 3D matrix created grouping NTIMES 
@@ -39,11 +47,16 @@ function h=datapack_to_bmp(DATA,DIRECTORY,PRENAME)
 %            N(1,2) represents NCOL and
 %            N(1,3) represents NTIMES.
 %  DIRECTORY is the address where the BMP files will be saved.
-%  PRENAME   is the commom name of the BMP files. Thus if PRENAME='img', then the images
-%            will have names as 'img1.bmp','img2.bmp','img3.bmp', ..., etc.  
+%  PRENAME   is the format filename, example: if you search names as 
+%            'fig1.bmp', then PRENAME='fig' or PRENAME='fig%d'. If PRENAME not
+%            contain a format specifiers of family %d, them this format specifiers 
+%            is added at the final of PRENAME string. The format string is similar
+%            to the function printf of others programming languages.
+%            Only are permitted format specifiers of family %d, given that will
+%            be replaced a decimal number.
 %
 %  Output:
-%  h         returns de same value of DIRECTORY variable.
+%  h         returns the same value of DIRECTORY variable.
 %
 %
 %  For help, bug reports and feature suggestions, please visit:
@@ -79,12 +92,12 @@ function h=datapack_to_bmp(DATA,DIRECTORY,PRENAME)
 
 	DATA=uint8(DATA);
 
+	if(length(strfind(PRENAME,'%'))==0)
+		PRENAME=[PRENAME,'%d'];
+	end
+
 	for II=1:NTIMES
-		if length(DIRECTORY)>0
-			NAME=[DIRECTORY,filesep,PRENAME,num2str(II),'.bmp'];
-		else
-			NAME=[PRENAME,num2str(II),'.bmp'];
-		end
+		NAME=fullfile(DIRECTORY,sprintf([PRENAME,'.bmp'],II));
 		imwrite(DATA(:,:,II),NAME);
 	end
 
