@@ -2,6 +2,8 @@
 bsltl-1.0.1   Release Date: 2016-05-13   Release Manager: Fernando Pujaico R.
 ===============================================================================
 ** Added texinfo overview and consequently overview.html.
+** datapack_to_bmp.m function got a new characteristic in your second parameter.
+   this is equal to improve in datapack.m. 
 ** datapack.m function got a new characteristic in your second parameter.
    Now is possible load images with the format: 
    img0001.bmp, img0002.bmp, ..., img0009.bmp, img0010.bmp, img0011.bmp. 
