@@ -1,6 +1,9 @@
 ===============================================================================
 bsltl-1.0.1   Release Date: 2016-03-30   Release Manager: Fernando Pujaico R.
 ===============================================================================
+** thsp_gaussian.m function got a new characteristic in your fourth parameter.
+   Now is accepted, optionally, a graphic handler as fourth parameter; also
+   can be selected the color of the plotted points.
 ** Added texinfo overview and consequently overview.html.
 ** datapack_to_bmp.m function got a new characteristic in your second parameter.
    this is equal to improve in datapack.m. 

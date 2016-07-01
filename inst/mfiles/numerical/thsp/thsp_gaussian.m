@@ -56,21 +56,21 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %          values are selected to create the time history speckle pattern. If this parameter
 %          is not used, then a graphic window is enabled to the selection of a point P0.
 %          This parameter only can be the fourth parameter.
-%  HG      [Optional] is used the graphic handler, it is enable the selection of a point P0 
-%          in the figure pointed by the graphic handler.
+%  HG      [Optional] is the used graphic handler; Additionally, it is enable the graphic 
+%          selection of a point P0 in the figure pointed by the graphic handler.
 %          This parameter only can be the fourth parameter.
-%  Show    [Optional] can be used in the last position of input, and its
-%          function is to enable a graphic output of the selected points that formed the
+%  Show    [Optional] can be used in the last position of input, and its function 
+%          is used to enable a graphic output of the selected points that formed the
 %          THSP. Show='on', Show='on-red', Show='on-green' or Show='on-blue' to enable. 
 %          It is disabled in other cases, by default Show='off'.
 %          Show='on' plot the points in the color red, in other cases are used the
 %          specified colors.
 %
 %  Output:
-%  Y      is the time history speckle patterns. Where Y is a 2D matrix with
+%  Y      is the time history speckle pattern. Where, Y is a 2D matrix with
 %         M lines and NTIMES columns.
 %  POINTS [Optional] is a matrix with two columns and 
-%         M lines. Thus, each line represents one point in study.(line,column).
+%         M lines. Thus, each line represents one point in study, (line,column).
 %
 %
 %  For help, bug reports and feature suggestions, please visit:
@@ -80,9 +80,10 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %  Code developed by:  Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>   
 %  Code documented by: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %  Code reviewed by:   Roberto A Braga Jr <robertobraga@deg.ufla.br>
+%                      Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %  
 %  Date: 09 of July of 2015.
-%  Review: 28 of March of 2016.
+%  Review: 01 of July of 2016.
 %
     NSIZE = size(DATA); 
     NLIN  = NSIZE(1,1);
@@ -100,7 +101,7 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
         refresh;
 		msgbox('Please select one point');	
 		[ P0(2) P0(1)]=ginput(1);
-		%disp('Point loaded.');
+		disp('Point loaded.');
 	else
 		if( isvector(varargin{1})  && (length(varargin{1})==2) && ~ischar(varargin{1}) )
             %disp('Point loaded.');
@@ -112,7 +113,7 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
             refresh(varargin{1})		
 			msgbox('Please select one point');
 			[ P0(2) P0(1)]=ginput(1);
-			%disp('Point loaded. Please wait ...');
+			disp('Point loaded.');
 		elseif( ischar(varargin{1}) )
             %disp('Default gcf loaded.');
 			imagesc(EXAMPLE_MATRIX);
@@ -120,7 +121,7 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
             refresh;	
 			msgbox('Please select one point');
 			[ P0(2) P0(1)]=ginput(1);
-			%disp('Point loaded.');
+			disp('Point loaded.');
         else
 			error('The 4th input parameter should be a vector [a b], a graphic handler or a string.');
 		end
