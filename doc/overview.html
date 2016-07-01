@@ -121,15 +121,15 @@ biospeckle laser technique.(version 1.0.1).
 <p>Implemented technics:
 </p><ul>
 <li> Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
-<em>$$FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}$$</em> 
-<em>$$GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|$$</em> 
-<em>$$Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]$$</em> 
-<em>$$Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }$$</em> 
+<em>FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}</em> 
+<em>GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|</em> 
+<em>Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]</em> 
+<em>Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }</em> 
 
 </li><li> Numerical methods: AVD, IM, NCOM, THSP, RVD, Corr, etc.
-<em>$$AVD=\sum \limits_{ij} NCOM(i,j)|i-j|$$</em> 
-<em>$$IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2$$</em> 
-<em>$$RVD=\sum \limits_{ij} NCOM(i,j)(i-j)$$</em> 
+<em>AVD=\sum \limits_{ij} NCOM(i,j)|i-j|</em> 
+<em>IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2</em> 
+<em>RVD=\sum \limits_{ij} NCOM(i,j)(i-j)</em> 
 </li><li> Filtering
 </li><li> Quality test
 </li><li> etc

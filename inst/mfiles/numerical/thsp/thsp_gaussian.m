@@ -19,7 +19,7 @@
 function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %
 %  This function creates the THSP (Time History Speckle Pattern)[1][2] 
-%  of a set of M points (pixels) randomly (Gaussian) selected in DATA(:,:,1), 
+%  of a set of M points (pixels) randomly (Gaussian) selected in EXAMPLE_MATRIX, 
 %  and through DATA(:,:,k) for all k value.   
 %  Around a point P0, M points are selected randomly, these points are concentrated
 %  mostly in a radius Sigma around the point P0.
@@ -37,8 +37,12 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %  After starting the main routine just type the following command at the
 %  prompt:
 %  Y         = thsp_gaussian(DATA,M,Sigma);
+%  [Y POINTS]= thsp_gaussian(DATA,M,Sigma);
 %  [Y POINTS]= thsp_gaussian(DATA,M,Sigma,'on');
+%  [Y POINTS]= thsp_gaussian(DATA,M,Sigma,P0);
 %  [Y POINTS]= thsp_gaussian(DATA,M,Sigma,P0,'on');
+%  [Y POINTS]= thsp_gaussian(DATA,M,Sigma,HG);
+%  [Y POINTS]= thsp_gaussian(DATA,M,Sigma,HG,'on');
 %  
 %  Input:
 %  DATA    is the speckle data pack. Where DATA is a 3D matrix created grouping NTIMES 
@@ -48,12 +52,19 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %          N(1,3) represents NTIMES.
 %  M       is the number of points, Gaussian randomly selected, in analysis.
 %  Sigma   is the standard deviation in pixels. 
-%  P0      [Optional] is the initial point, around this point, M values are selected 
-%          to create the time history speckle pattern. If this parameter
+%  P0      [Optional] is the initial point [line column], around this point, M 
+%          values are selected to create the time history speckle pattern. If this parameter
 %          is not used, then a graphic window is enabled to the selection of a point P0.
+%          This parameter only can be the fourth parameter.
+%  HG      [Optional] is used the graphic handler, it is enable the selection of a point P0 
+%          in the figure pointed by the graphic handler.
+%          This parameter only can be the fourth parameter.
 %  Show    [Optional] can be used in the last position of input, and its
 %          function is to enable a graphic output of the selected points that formed the
-%          THSP. Show='on' to enable. It is disabled in other cases, by default Show='off'.
+%          THSP. Show='on', Show='on-red', Show='on-green' or Show='on-blue' to enable. 
+%          It is disabled in other cases, by default Show='off'.
+%          Show='on' plot the points in the color red, in other cases are used the
+%          specified colors.
 %
 %  Output:
 %  Y      is the time history speckle patterns. Where Y is a 2D matrix with
@@ -81,32 +92,49 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 	Y      = zeros(M,NTIMES);        
 	POINTS = zeros(M,2);
 
-
+    EXAMPLE_MATRIX=DATA(:,:,1);
 
 	if(nargin<4)
-		imagesc(DATA(:,:,1));
+		imagesc(EXAMPLE_MATRIX);
 		P0=zeros(1,2);	
+        refresh;
 		msgbox('Please select one point');	
 		[ P0(2) P0(1)]=ginput(1);
-		disp('Point loaded. Please wait ...');
+		%disp('Point loaded.');
 	else
-		if(isvector(varargin{1}) && ~ischar(varargin{1}))
-			P0=varargin{1};
-		else
-			if(~ischar(varargin{1}))
-				error('The 4th input parameter should be a vector [a b].');
-			else
-				imagesc(DATA(:,:,1));
-				P0=zeros(1,2);		
-				msgbox('Please select one point');
-				[ P0(2) P0(1)]=ginput(1);
-				disp('Point loaded. Please wait ...');
-			end
+		if( isvector(varargin{1})  && (length(varargin{1})==2) && ~ischar(varargin{1}) )
+            %disp('Point loaded.');
+		    P0=varargin{1};
+        elseif( ishghandle(varargin{1}) )
+            %disp('Graphic handle loaded.');
+			figure(varargin{1});
+			P0=zeros(1,2);
+            refresh(varargin{1})		
+			msgbox('Please select one point');
+			[ P0(2) P0(1)]=ginput(1);
+			%disp('Point loaded. Please wait ...');
+		elseif( ischar(varargin{1}) )
+            %disp('Default gcf loaded.');
+			imagesc(EXAMPLE_MATRIX);
+			P0=zeros(1,2);	
+            refresh;	
+			msgbox('Please select one point');
+			[ P0(2) P0(1)]=ginput(1);
+			%disp('Point loaded.');
+        else
+			error('The 4th input parameter should be a vector [a b], a graphic handler or a string.');
 		end
 	end
 
-	POINTS(:,1) = Sigma*randn([M 1])+P0(1);	
-	POINTS(:,2) = Sigma*randn([M 1])+P0(2);
+    if( (P0(1)<1) || (P0(1)>NLIN) )
+        error(sprintf('The line of selected central point is out of datapack line limits. LINE:%d',P0(1)));
+    end
+    if( (P0(2)<1) || (P0(2)>NCOL) )
+        error(sprintf('The column of selected central point is out of datapack column limits. COLUMN:%d',P0(2)));
+    end
+
+	POINTS(:,1) = Sigma*randn([M 1])+P0(1);	%%lines
+	POINTS(:,2) = Sigma*randn([M 1])+P0(2);	%%columns
 
 	for m = 1:M	
 		POINTS(m,1)=round(POINTS(m,1));
@@ -126,17 +154,25 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 	SHOW='off';
 
 	if(nargin>3)
-		for II=4:nargin
-			if(ischar(varargin{II-3}))
-				SHOW=varargin{II-3};
-			end
+		if(ischar(varargin{nargin-3}))
+			SHOW=varargin{nargin-3};
 		end
 	end
 
-	if(strcmp(SHOW,'on'))
-		imagesc(DATA(:,:,1));
+	if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') || strcmp(SHOW,'on-green') || strcmp(SHOW,'on-blue'))
+        if( ishghandle(varargin{1}) )
+			figure(varargin{1});
+        else
+		    imagesc(EXAMPLE_MATRIX);
+        end
 		hold on;
-		scatter(POINTS(:,2),POINTS(:,1),'r');
+        if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') )
+		    scatter(POINTS(:,2),POINTS(:,1),'r');
+        elseif(strcmp(SHOW,'on-green') )
+		    scatter(POINTS(:,2),POINTS(:,1),'g');
+        elseif(strcmp(SHOW,'on-blue') )
+		    scatter(POINTS(:,2),POINTS(:,1),'b');
+        end
 		refresh 
 		hold off;
 	end
