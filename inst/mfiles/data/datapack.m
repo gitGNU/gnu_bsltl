@@ -112,6 +112,8 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
 	IMGN1=round(IMGN1);
 	IMGN2=round(IMGN2);
 
+    IMGDIR=replace_tild_home(IMGDIR);
+
 	%Verify the existence of the directory
 	if(exist(IMGDIR)~=7)
 		error(['No exist directory: ', IMGDIR]);
@@ -189,4 +191,32 @@ function [DATA] = datapack(IMGDIR,IMGNAME,IMGN1,IMGN2,IMGFMT,varargin)
     
  	disp('DATA Pack loaded...[OK]');
     
-    
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function newpath=replace_tild_home(oldpath)
+%% Replaces the initial text '~/' in the variable oldpath, by the home path in 
+%% gnu-linux or win, the function returns the result in the newpath variable.
+
+    if(length(oldpath)>=2)
+    if(strcmp(oldpath(1:2),'~/'))
+        if    ( length(getenv('HOME'))>0 )
+            if(length(oldpath)>2)
+                newpath=fullfile(getenv('HOME'),oldpath(3:end));
+            else
+                newpath=fullfile(getenv('HOME'));
+            end
+        elseif( length(getenv('HOMEPATH'))>0 )
+            if(length(oldpath)>2)
+                newpath=fullfile(getenv('HOMEDRIVE'),getenv('HOMEPATH'),oldpath(3:end));
+            else
+                newpath=fullfile(getenv('HOMEDRIVE'),getenv('HOMEPATH'));
+            end
+        else
+            newpath=oldpath;
+        end
+    end
+    end
+end
+
