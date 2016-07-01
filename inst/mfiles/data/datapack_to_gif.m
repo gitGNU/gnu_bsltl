@@ -23,8 +23,8 @@ function h=datapack_to_gif(DATA,Filename,Frames,varargin)
 %  After starting the main routine just type the following command at the
 %  prompt:
 %  datapack_to_gif(DATA,Filename,Frames);
-%  datapack_to_gif(DATA,Filename,Frames,gray);
-%  datapack_to_gif(DATA,Filename,Frames,jet);
+%  datapack_to_gif(DATA,Filename,Frames,Map);
+%  datapack_to_gif(DATA,Filename,Frames,Map,Time);
 %  
 %  Input:
 %  DATA     is the speckle data pack. Where DATA is a 3D matrix created grouping NTIMES 
@@ -33,7 +33,8 @@ function h=datapack_to_gif(DATA,Filename,Frames,varargin)
 %           N(1,2) represents NCOL and
 %           N(1,3) represents NTIMES.
 %  Filename is the name of gif file.
-%  Frames   is the number of frames in the gif file. 
+%  Frames   is the number of frames in the gif file. In the number of images (NTIMES) 
+%           is less than the number of frames (Frames), then overwrite Frames=NTIMES;
 %  Map      [Optional] is the colormap, this value can be: jet, gray, hsv, ..., etc.
 %           By default: jet. See: colormap('list')
 %  Time     [Optional] is the time between frames in the gif file. By default: 0.5 sec.
@@ -67,12 +68,12 @@ function h=datapack_to_gif(DATA,Filename,Frames,varargin)
 
 
 	if (nargin<4)
-		map = colormap(jet);
+		map = jet;
 	else
 		if(ismatrix(varargin{1}))
 			map=varargin{1};
 		else
-			map=colormap(jet);
+			map=jet;
 		end
 	end
 
@@ -88,10 +89,15 @@ function h=datapack_to_gif(DATA,Filename,Frames,varargin)
 	imwrite(	D(:,:,1),map,Filename,'gif','LoopCount',...
 				inf,'DelayTime',Time);
 
+    NFRAMES=1;
+
 	%Loop through and write the rest of the frames
 	for ii=2:Step:NTIMES
 	     imwrite(D(:,:,ii),map,Filename,'gif','writemode',...
 				'append','DelayTime',Time);
+
+        NFRAMES=NFRAMES+1;
+        if(NFRAMES == Frames)   break;
 	end
 
 	h=Filename;
