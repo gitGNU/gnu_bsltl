@@ -1,0 +1,1 @@
+Eliminate dependecy of fir1(ORDER,CUTOFF) in the function qmfmaker.m
