@@ -56,7 +56,12 @@ function h=datapack_to_bmp(DATA,DIRECTORY,PRENAME)
 %            be replaced a decimal number.
 %
 %  Output:
-%  h         returns the same value of DIRECTORY variable.
+%  h         returns a struct with the fields,
+%            h.file{i}: The name of i-th bmp file, 
+%            h.format:  The format filename,
+%            h.init:    The id of first element,
+%            h.dir:     The directory where the images will be saved, and
+%            h.nel:     The numbeer of images.
 %
 %
 %  For help, bug reports and feature suggestions, please visit:
@@ -96,10 +101,17 @@ function h=datapack_to_bmp(DATA,DIRECTORY,PRENAME)
 		PRENAME=[PRENAME,'%d'];
 	end
 
+    mkdir(DIRECTORY);
+
+    h.file=cell(1,NTIMES);
+    h.format=[PRENAME,'.bmp'];
+    h.init=1;
+    h.dir=DIRECTORY;
+    h.nel=NTIMES;
+
 	for II=1:NTIMES
-		NAME=fullfile(DIRECTORY,sprintf([PRENAME,'.bmp'],II));
-		imwrite(DATA(:,:,II),NAME);
+		h.file{II}=fullfile(DIRECTORY,sprintf(h.format,II));
+		imwrite(DATA(:,:,II),h.file{II});
 	end
 
-	h=DIRECTORY;
 end
