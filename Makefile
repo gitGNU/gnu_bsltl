@@ -14,6 +14,7 @@ RELEASE_DIR     := $(TARGET_DIR)/$(PACKAGE)-$(VERSION)
 RELEASE_TARBALL := $(TARGET_DIR)/$(PACKAGE)-$(VERSION).tar.gz
 HTML_DIR        := $(TARGET_DIR)/$(PACKAGE)-html
 HTML_TARBALL    := $(TARGET_DIR)/$(PACKAGE)-html.tar.gz
+SIG_RELEASE_TARBALL:= $(TARGET_DIR)/$(PACKAGE)-$(VERSION).tar.gz.sig
 EXPORT_DIR      := ../release
 
 M_SOURCES := $(wildcard inst/*.m)
@@ -28,6 +29,7 @@ OCTAVE ?= octave --no-window-system --silent
 help:
 	@echo "Targets:"
 	@echo "   dist    - Create $(RELEASE_TARBALL) for release from last git commit"
+	@echo "   sign    - Create the sign file $(SIG_RELEASE_TARBALL) from $(RELEASE_TARBALL)"
 	@echo "   html    - Create $(HTML_TARBALL) for release from last git commit"
 	@echo "   release - Create both of the above (dist/html) and make/show md5sum files"
 	@echo 
@@ -65,6 +67,11 @@ $(HTML_DIR): install
 
 dist: $(RELEASE_TARBALL)
 html: $(HTML_TARBALL)
+sign: dist 
+	@echo 
+	cd $(TARGET_DIR); gpg -b --use-agent  $(notdir $(RELEASE_TARBALL)) 
+	cd $(TARGET_DIR); gpg --verify $(notdir $(SIG_RELEASE_TARBALL)) 
+
 
 release: dist html
 	@echo 
