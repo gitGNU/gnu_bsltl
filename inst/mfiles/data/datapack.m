@@ -199,6 +199,7 @@ function newpath=replace_tild_home(oldpath)
 %% Replaces the initial text '~/' in the variable oldpath, by the home path in 
 %% gnu-linux or win, the function returns the result in the newpath variable.
 
+    newpath=oldpath;
     if(length(oldpath)>=2)
     if(strcmp(oldpath(1:2),'~/'))
         if    ( length(getenv('HOME'))>0 )
