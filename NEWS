@@ -1,5 +1,10 @@
 ===============================================================================
-bsltl-1.0.1   Release Date: 2016-03-30   Release Manager: Fernando Pujaico R.
+bsltl-1.0.2   Release Date: 2016-07-14   Release Manager: Fernando Pujaico R.
+===============================================================================
+** datapack.m fixed error when the address does not initialize with '~/'.
+
+===============================================================================
+bsltl-1.0.1   Release Date: 2016-06-30   Release Manager: Fernando Pujaico R.
 ===============================================================================
 ** datapack_to_bmp.m function change the type of the return value. Now is 
    returned a datapack struct with the fields: {file, format, init, dir, nel}.

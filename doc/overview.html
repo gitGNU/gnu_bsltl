@@ -57,10 +57,10 @@ ul.no-bullet {list-style: none}
 	<div class="top-nav darkblock">
        	<a href="http://www.nongnu.org/bsltl/index.html">Home</a> |
        	<a href="http://www.nongnu.org/bsltl/documentation.html">Documentation</a> |
-       	<a href="http://www.nongnu.org/bsltl/overview.html">Overview</a> |
+       	<a href="overview.html">Overview</a> |
        	<a href="http://www.nongnu.org/bsltl/examples.html">Examples</a> |
-       	<a href="http://git.savannah.gnu.org/cgit/bsltl.git/tree/" target="_blank">Code</a> |
-       	<a href="http://download.savannah.gnu.org/releases/bsltl/" target="_blank">Download</a> |
+       	<a href="http://www.nongnu.org/bsltl/code.html" target="_blank">Code</a> |
+       	<a href="http://www.nongnu.org/bsltl/download.html" target="_blank">Download</a> |
        	<a href="https://savannah.nongnu.org/projects/bsltl/" target="_blank">Develop</a>
 	</div><br>
 
@@ -116,20 +116,13 @@ Next: <a href="#Citations" accesskey="n" rel="next">Citations</a>, Up: <a href="
 <h1 class="top">Introduction</h1>
 
 <p>The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
-biospeckle laser technique.(version 1.0.1).
+biospeckle laser technique.(version 1.0.2).
 </p>
 <p>Implemented technics:
 </p><ul>
 <li> Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
-<em>FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}</em> 
-<em>GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|</em> 
-<em>Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]</em> 
-<em>Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }</em> 
 
 </li><li> Numerical methods: AVD, IM, NCOM, THSP, RVD, Corr, etc.
-<em>AVD=\sum \limits_{ij} NCOM(i,j)|i-j|</em> 
-<em>IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2</em> 
-<em>RVD=\sum \limits_{ij} NCOM(i,j)(i-j)</em> 
 </li><li> Filtering
 </li><li> Quality test
 </li><li> etc
@@ -180,8 +173,8 @@ URL http://www.nongnu.org/bsltl/
 <p>A BibTeX entry for LaTeX users is:
 </p><pre class="verbatim">@misc{BSLTL1,
     author    = {Braga J\'unior, Roberto Alves and 
-                Pujaico Rivera, Fernando and 
-                Moreira, Junio},
+                 Pujaico Rivera, Fernando and 
+                 Moreira, Junio},
     title     = {{BSLTL:} Biospeckle Laser Tool Library},
     year      = {2016},
     url       = {http://www.nongnu.org/bsltl/}
@@ -244,20 +237,20 @@ octave-forge website in the default install directory.
 <h3 class="section">3.2 Method 2: Offline - Only in OCTAVE</h3>
 <a name="index-Method-2"></a>
 <p>The next OCTAVE code, install the BSLTL package, 
-<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.1.tar.gz</a>, 
+<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.2.tar.gz</a>, 
 in the directory: ~/lib/octmat
 </p>
 <p>If the BSLTL package was downloaded in the directory: /download_path
 </p><div class="example">
 <pre class="example">pkg prefix ~/lib/octmat
-pkg install -auto /download_path/bsltl-1.0.1.tar.gz
+pkg install -auto /download_path/bsltl-1.0.2.tar.gz
 </pre></div>
 <p>With this method the package is configured for be loaded automatically when OCTAVE start.
 </p>
 <a name="Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE"></a>
 <h3 class="section">3.3 Method 3: Offline - In MATLAB or OCTAVE</h3>
 <a name="index-Method-3"></a>
-<p>If the BSLTL package, <a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.1.tar.gz</a>, 
+<p>If the BSLTL package, <a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.2.tar.gz</a>, 
 was uncompressed in the directory &rsquo;/home/user/lib/octmat/bsltl&rsquo;. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
@@ -400,7 +393,7 @@ Next: <a href="#BSLTL-project-group" accesskey="n" rel="next">BSLTL project grou
 <h2 class="chapter">7 Versions</h2>
 
 <p>The increment in the version number has a meaning. To a version number 
-with the format &rsquo;va.b.c&rsquo; (by example: v1.0.1).
+with the format &rsquo;va.b.c&rsquo; (by example: v1.0.2).
 </p><ul>
 <li> An increment in &rsquo;c&rsquo; indicates a modification or correction in the code.
 </li><li> An increment in &rsquo;b&rsquo; indicates that at least a new function was added in the code.

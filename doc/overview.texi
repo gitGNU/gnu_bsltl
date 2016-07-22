@@ -5,7 +5,7 @@
 @c 
 @c #############################################################################
 
-@set VERSION 1.0.1
+@set VERSION 1.0.2
 
 @settitle Biospeckle Laser Tool Library
 
@@ -38,16 +38,16 @@ Implemented technics:
 @itemize @bullet
 @item
 Graphical methods: Fujii, GD, Std, Mean, Contrast, PTD, MHI, Kurtosis, Skewness, etc.
-@math{FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}} 
-@math{GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|} 
-@math{Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]} 
-@math{Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }} 
+@c @math{FUJII=\frac{200}{NTIMES-1} \sum \limits_{k=1}^{NTIMES-1} \frac{|I_{k}-I_{k+1}|}{I_{k}+I_{k+1}}} 
+@c @math{GD=\frac{1}{\binom{NTIMES}{2}} \sum\limits_{k=1}^{NTIMES-1} \sum\limits_{l=1}^{NTIMES-k} |I(k)-I(k+l)|} 
+@c @math{Mean= \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} I(k) \approx E[I(k)]} 
+@c @math{Std = \sqrt{ \frac{1}{NTIMES} \sum\limits_{k=1}^{NTIMES} (I(k)-Mean)^2  }} 
 
 @item
 Numerical methods: AVD, IM, NCOM, THSP, RVD, Corr, etc.
-@math{AVD=\sum \limits_{ij} NCOM(i,j)|i-j|} 
-@math{IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2} 
-@math{RVD=\sum \limits_{ij} NCOM(i,j)(i-j)} 
+@c @math{AVD=\sum \limits_{ij} NCOM(i,j)|i-j|} 
+@c @math{IM=\sum \limits_{ij} NCOM(i,j)|i-j|^2} 
+@c @math{RVD=\sum \limits_{ij} NCOM(i,j)(i-j)} 
 @item
 Filtering
 @item
@@ -89,8 +89,8 @@ A BibTeX entry for LaTeX users is:
 @verbatim
 @misc{BSLTL1,
     author    = {Braga J\'unior, Roberto Alves and 
-                Pujaico Rivera, Fernando and 
-                Moreira, Junio},
+                 Pujaico Rivera, Fernando and 
+                 Moreira, Junio},
     title     = {{BSLTL:} Biospeckle Laser Tool Library},
     year      = {2016},
     url       = {http://www.nongnu.org/bsltl/}
