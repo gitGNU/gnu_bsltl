@@ -130,7 +130,7 @@ sudo apt-get install liboctave-dev
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @node Installation
-@chapter Installtion
+@chapter Installation
 
 
 @section Method 1: Online - Only in OCTAVE

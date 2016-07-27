@@ -51,6 +51,7 @@ $(RELEASE_DIR): .git/index
 	-$(RM) -r "$@"
 	git archive --format=tar --prefix="$@/" HEAD | tar -x
 	$(RM) "$@/Makefile"
+	$(RM) "$@/.gitignore"
 	chmod -R a+rX,u+w,go-w "$@"
 
 $(HTML_DIR): install
