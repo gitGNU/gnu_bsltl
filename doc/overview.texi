@@ -176,42 +176,60 @@ time that we call our source files.
 @node Using the BSLTL package
 @chapter Using the BSLTL package
 
-Many code examples  can be found in the @url{http://www.nongnu.org/bsltl, homepage}
-of BSLTL library.
 
-@section Example code of method 1 and 2 - Getting the AVD value of line 240
+
+@section Example code of installation method 1 and 2 - Getting the AVD value of line 240
 @cindex Method 1
 @cindex Method 2
+The next code load 129 images from the directory pointed by the variable
+@code{IMAGES_DIR}; the images are called @code{'1.bmp'}, @code{'2.bmp'}, ...,
+@code{'128.bmp'} and @code{'129.bmp'}. The images are joined in a 3D matrix
+called @code{DATA}.
+
 @example
 IMAGES_DIR = '/home/user/data/speckle/test1';
-
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
-                                               % 'img1.bmp', 'img2.bmp', 
-                                               % ...       , ...       ,
-                                               % 'img128.bmp', 'img129.bmp'.
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
 AVD  = avd(COM);                % Getting the AVD value.
 @end example
+Finally are calculated the  time history speckle pattern (of pixels in the line 
+number 240 of @code{DATA}),the co-occurrence matrix
+and the AVD value, and your values are stored in the variables @code{THSP}, @code{COM} and 
+@code{AVD} respectively.
 
-@section Example code of method 3 - Getting the AVD value of column 100
+@section Example code of installation method 3 - Getting the AVD value of column 100
 @cindex Method 3
+The next code load to octave enviroment all the code functions located in the address pointed
+by the variable @code{BSLTL_DIR}, including subdirectories. 
+
+Later the code load 129 images from the directory 
+pointed by the variable
+@code{IMAGES_DIR}; the images are called @code{'1.bmp'}, @code{'2.bmp'}, ...,
+@code{'128.bmp'} and @code{'129.bmp'}. The images are joined in a 3D matrix
+called @code{DATA}.
+
 @example
 BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
-
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
-                                               % 'img1.bmp', 'img2.bmp', 
-                                               % ...       , ...       ,
-                                               % 'img128.bmp', 'img129.bmp'.
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
 
 THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
 AVD  = avd(COM);                % Getting the AVD value.
 @end example
+Finally are calculated the  time history speckle pattern (of pixels in the column 
+number 100 of @code{DATA}), the co-occurrence matrix
+and the AVD value, and your values are stored in the variables @code{THSP}, @code{COM} and 
+@code{AVD} respectively.
+
+@section More code examples
+
+Many code examples  can be found in the @url{http://www.nongnu.org/bsltl/examples.html, examples page}
+of BSLTL library.
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

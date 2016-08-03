@@ -82,7 +82,7 @@ ul.no-bullet {list-style: none}
   <ul class="no-bullet">
     <li><a name="toc-Octave-dependencies" href="#Octave-dependencies">2.1 Octave dependencies</a></li>
   </ul></li>
-  <li><a name="toc-Installtion" href="#Installation">3 Installtion</a>
+  <li><a name="toc-Installation-1" href="#Installation">3 Installation</a>
   <ul class="no-bullet">
     <li><a name="toc-Method-1_003a-Online-_002d-Only-in-OCTAVE" href="#Method-1_003a-Online-_002d-Only-in-OCTAVE">3.1 Method 1: Online - Only in OCTAVE</a></li>
     <li><a name="toc-Method-2_003a-Offline-_002d-Only-in-OCTAVE" href="#Method-2_003a-Offline-_002d-Only-in-OCTAVE">3.2 Method 2: Offline - Only in OCTAVE</a></li>
@@ -90,8 +90,9 @@ ul.no-bullet {list-style: none}
   </ul></li>
   <li><a name="toc-Using-the-BSLTL-package-1" href="#Using-the-BSLTL-package">4 Using the BSLTL package</a>
   <ul class="no-bullet">
-    <li><a name="toc-Example-code-of-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240" href="#Example-code-of-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240">4.1 Example code of method 1 and 2 - Getting the AVD value of line 240</a></li>
-    <li><a name="toc-Example-code-of-method-3-_002d-Getting-the-AVD-value-of-column-100" href="#Example-code-of-method-3-_002d-Getting-the-AVD-value-of-column-100">4.2 Example code of method 3 - Getting the AVD value of column 100</a></li>
+    <li><a name="toc-Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240" href="#Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240">4.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</a></li>
+    <li><a name="toc-Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100" href="#Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100">4.2 Example code of installation method 3 - Getting the AVD value of column 100</a></li>
+    <li><a name="toc-More-code-examples" href="#More-code-examples">4.3 More code examples</a></li>
   </ul></li>
   <li><a name="toc-Contributing-to-the-package-1" href="#Contributing-to-the-package">5 Contributing to the package</a>
   <ul class="no-bullet">
@@ -219,8 +220,8 @@ command install in the system.
 <p>
 Next: <a href="#Using-the-BSLTL-package" accesskey="n" rel="next">Using the BSLTL package</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Installtion"></a>
-<h2 class="chapter">3 Installtion</h2>
+<a name="Installation-1"></a>
+<h2 class="chapter">3 Installation</h2>
 
 
 <a name="Method-1_003a-Online-_002d-Only-in-OCTAVE"></a>
@@ -273,45 +274,64 @@ Next: <a href="#Contributing-to-the-package" accesskey="n" rel="next">Contributi
 <a name="Using-the-BSLTL-package-1"></a>
 <h2 class="chapter">4 Using the BSLTL package</h2>
 
-<p>Many code examples  can be found in the <a href="http://www.nongnu.org/bsltl">homepage</a>
-of BSLTL library.
-</p>
-<a name="Example-code-of-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240"></a>
-<h3 class="section">4.1 Example code of method 1 and 2 - Getting the AVD value of line 240</h3>
+
+
+<a name="Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240"></a>
+<h3 class="section">4.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</h3>
 <a name="index-Method-1-1"></a>
 <a name="index-Method-2-1"></a>
+<p>The next code load 129 images from the directory pointed by the variable
+<code>IMAGES_DIR</code>; the images are called <code>'1.bmp'</code>, <code>'2.bmp'</code>, ...,
+<code>'128.bmp'</code> and <code>'129.bmp'</code>. The images are joined in a 3D matrix
+called <code>DATA</code>.
+</p>
 <div class="example">
 <pre class="example">IMAGES_DIR = '/home/user/data/speckle/test1';
-
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
-                                               % 'img1.bmp', 'img2.bmp', 
-                                               % ...       , ...       ,
-                                               % 'img128.bmp', 'img129.bmp'.
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
 AVD  = avd(COM);                % Getting the AVD value.
 </pre></div>
-
-<a name="Example-code-of-method-3-_002d-Getting-the-AVD-value-of-column-100"></a>
-<h3 class="section">4.2 Example code of method 3 - Getting the AVD value of column 100</h3>
+<p>Finally are calculated the  time history speckle pattern (of pixels in the line 
+number 240 of <code>DATA</code>),the co-occurrence matrix
+and the AVD value, and your values are stored in the variables <code>THSP</code>, <code>COM</code> and 
+<code>AVD</code> respectively.
+</p>
+<a name="Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100"></a>
+<h3 class="section">4.2 Example code of installation method 3 - Getting the AVD value of column 100</h3>
 <a name="index-Method-3-1"></a>
+<p>The next code load to octave enviroment all the code functions located in the address pointed
+by the variable <code>BSLTL_DIR</code>, including subdirectories. 
+</p>
+<p>Later the code load 129 images from the directory 
+pointed by the variable
+<code>IMAGES_DIR</code>; the images are called <code>'1.bmp'</code>, <code>'2.bmp'</code>, ...,
+<code>'128.bmp'</code> and <code>'129.bmp'</code>. The images are joined in a 3D matrix
+called <code>DATA</code>.
+</p>
 <div class="example">
 <pre class="example">BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
-
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp'); % Datapack of 129 images.
-                                               % 'img1.bmp', 'img2.bmp', 
-                                               % ...       , ...       ,
-                                               % 'img128.bmp', 'img129.bmp'.
+DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
 
 THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
 AVD  = avd(COM);                % Getting the AVD value.
 </pre></div>
+<p>Finally are calculated the  time history speckle pattern (of pixels in the column 
+number 100 of <code>DATA</code>), the co-occurrence matrix
+and the AVD value, and your values are stored in the variables <code>THSP</code>, <code>COM</code> and 
+<code>AVD</code> respectively.
+</p>
+<a name="More-code-examples"></a>
+<h3 class="section">4.3 More code examples</h3>
 
+<p>Many code examples  can be found in the <a href="http://www.nongnu.org/bsltl/examples.html">examples page</a>
+of BSLTL library.
+</p>
 <hr>
 <a name="Contributing-to-the-package"></a>
 <div class="header">
