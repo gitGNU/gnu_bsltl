@@ -182,13 +182,13 @@ time that we call our source files.
 @cindex Method 1
 @cindex Method 2
 The next code load 129 images from the directory pointed by the variable
-@code{IMAGES_DIR}; the images are called @code{'1.bmp'}, @code{'2.bmp'}, ...,
-@code{'128.bmp'} and @code{'129.bmp'}. The images are joined in a 3D matrix
+@code{IMAGES_DIR}; the images are called @code{'img1.bmp'}, @code{'img2.bmp'}, ...,
+@code{'img128.bmp'} and @code{'img129.bmp'}. The images are joined in a 3D matrix
 called @code{DATA}.
 
 @example
 IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
@@ -206,8 +206,8 @@ by the variable @code{BSLTL_DIR}, including subdirectories.
 
 Later the code load 129 images from the directory 
 pointed by the variable
-@code{IMAGES_DIR}; the images are called @code{'1.bmp'}, @code{'2.bmp'}, ...,
-@code{'128.bmp'} and @code{'129.bmp'}. The images are joined in a 3D matrix
+@code{IMAGES_DIR}; the images are called @code{'img1.bmp'}, @code{'img2.bmp'}, ...,
+@code{'img128.bmp'} and @code{'img129.bmp'}. The images are joined in a 3D matrix
 called @code{DATA}.
 
 @example
@@ -215,7 +215,7 @@ BSLTL_DIR = '/home/user/lib/octmat/bsltl';
 addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
 
 THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
