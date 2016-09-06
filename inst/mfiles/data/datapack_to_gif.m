@@ -69,8 +69,9 @@ function h=datapack_to_gif(DATA,Filename,Frames,varargin)
 
 	if (nargin<4)
 		map = jet;
-	else
-		if(ismatrix(varargin{1}))
+    else
+        if( (length(size(varargin{1}))==2)&&(size(varargin{1},1)>1)&&(size(varargin{1},2)>1) )
+		%if(ismatrix(varargin{1}))
 			map=varargin{1};
 		else
 			map=jet;

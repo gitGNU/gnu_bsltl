@@ -59,7 +59,7 @@ function [H]=qmfmaker(ORDER)
 	[A B]=findminstd(A,B,L,ORDER);
 
 	CUTOFF=(A+B)/2;
-	H=fir1(ORDER,CUTOFF);
+	H=get_fir_filter(ORDER,CUTOFF);
 end
 
 % Find the cut-off interval [CUTOFF_A0 CUTOFF_B0]
