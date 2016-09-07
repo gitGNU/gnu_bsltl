@@ -13,4 +13,4 @@ Numerical
 Quality
  homogeneity satdark sscont
 WithoutTutorial
- datapack_to_bmp select_points thsp_points
+ datapack_to_bmp get_fir_filter imagesc_with_points select_points thsp_points

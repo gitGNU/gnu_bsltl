@@ -5,6 +5,8 @@ bsltl-1.1.0   Release Date: 2016-08-14   Release Manager: Fernando Pujaico R.
    select_points.m: select a set of points and return a matrix with these values.
    thsp_points.m: return a THSP from a set of points delivered from a matrix with 
    these values.
+** get_fir_filter.m added
+   get_fir_filter.m: function similar to fir1 of signal package.
 
 ===============================================================================
 bsltl-1.0.2   Release Date: 2016-07-14   Release Manager: Fernando Pujaico R.

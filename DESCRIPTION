@@ -1,6 +1,6 @@
 Name: bsltl
 Version: 1.1.0
-Date: 2016-08-22
+Date: 2016-09-07
 Author: Roberto Alves Braga Junior <robertobraga@deg.ufla.br>, Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>, Junio Moreira <juniomoreira@iftm.edu.br>
 Maintainer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 Title: Biospeckle Laser Tool Library.
@@ -8,7 +8,7 @@ Description: The BSLTL package is a free collection of OCTAVE/MATLAB routines fo
 Categories: Biospeckle Laser, Dynamic Laser Speckle,  Processing Images
 #Problems: Nothing that I know
 Url: http://www.nongnu.org/bsltl/
-Depends: octave (>= 3.8.0), control (>= 2.2.3), signal (>= 1.2.2)
+Depends: octave (>= 3.8.0)
 License: GPLv3+
 #SystemRequirements: 
 #BuildRequires:

@@ -1,3 +1,2 @@
-* We need to eliminate dependecy of fir1(ORDER,CUTOFF) in the function qmfmaker.m
 * We need to create datapack_from_bmp that load a struct returned by datapack_to_bmp.
 * We need work with the datapack struct and not with the 3D marix.
