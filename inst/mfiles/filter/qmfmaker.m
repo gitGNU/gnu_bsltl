@@ -70,7 +70,7 @@ function [CUTOFF_A0 CUTOFF_B0]=findminstd(CUTOFF_A,CUTOFF_B,L,ORDER)
 	sigma=zeros(1,L);
 
 	for II=1:L	
-		H=fir1(ORDER,CUTOFF(II));
+		H=get_fir_filter(ORDER,CUTOFF(II));
 		[H1 D]=qmfmirror(H,ORDER*2);
 		sigma(II)=std(D);
 	end

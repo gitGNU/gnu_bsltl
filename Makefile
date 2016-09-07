@@ -20,6 +20,7 @@ EXPORT_DIR      := ../release
 M_SOURCES := $(wildcard inst/*.m)
 PKG_ADD   := $(shell grep -Pho '(?<=(\#\#|%%) PKG_ADD: ).*' $(M_SOURCES))
 
+# Only used in 'make check'
 MFILES_SUBDIRS := $(shell find inst/mfiles -maxdepth 1 -type d -print)
 
 OCTAVE ?= octave --no-window-system --silent
@@ -74,7 +75,7 @@ sign: dist
 	cd $(TARGET_DIR); gpg --verify $(notdir $(SIG_RELEASE_TARBALL)) 
 
 
-release: dist html
+release: dist html sign
 	@echo 
 	cd $(TARGET_DIR); md5sum $(notdir $(RELEASE_TARBALL)) > $(notdir $(RELEASE_TARBALL).md5)
 	cd $(TARGET_DIR); md5sum $(notdir $(HTML_TARBALL))  > $(notdir $(HTML_TARBALL).md5)
