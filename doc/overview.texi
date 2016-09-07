@@ -5,7 +5,7 @@
 @c 
 @c #############################################################################
 
-@set VERSION 1.0.2
+@set VERSION 1.1.0
 
 @settitle Biospeckle Laser Tool Library
 
@@ -60,7 +60,6 @@ etc
 
 @menu
 * Citations::    How to cite the library.
-* Dependencies:: About the dependencies of the BSLTL package.
 * Installation:: About the intallation methods.
 * Using the BSLTL package:: About as to use the BSLTL package.
 * Contributing to the package:: How contribute with the package
@@ -101,31 +100,6 @@ We have invested a lot of time and effort in creating BSLTL package, please
 cite it when using it.  See also `citation pkgname' for citing other Octave 
 package with pkgname name.
 
-@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-@c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-@node Dependencies
-@chapter Dependencies
-
-@section Octave dependencies
-Some functions inside BSLTL package depend of signal package;
-at the same time the signal package depends of control package.
-Thus, we recommend install first the control package and later the signal package
-with the following online OCTAVE installation commands.
-@example
-pkg install -forge control
-pkg install -forge signal
-@end example
-@cindex Dependencies of Octave-Forge
-
-In operating systems based in GNU/Linux can be necessary install first the 
-library @code{liboctave-dev} in the system, given that OCTAVE uses this library 
-to install the control package. The next code is an example (Ubuntu/Debian) of 
-command install in the system.
-
-@verbatim
-sudo apt-get install liboctave-dev
-@end verbatim
-@cindex Dependencies of GNU-Linux
 
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,11 +118,11 @@ With this method the package is configured for be loaded automatically when OCTA
 
 @section Method 2: Offline - Only in OCTAVE
 @cindex Method 2
+If the BSLTL package (@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz})
+was downloaded in the directory: /download_path
 The next OCTAVE code, install the BSLTL package, 
-@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}, 
 in the directory: ~/lib/octmat
 
-If the BSLTL package was downloaded in the directory: /download_path
 @example
 pkg prefix ~/lib/octmat
 pkg install -auto /download_path/bsltl-@value{VERSION}.tar.gz
@@ -157,7 +131,7 @@ With this method the package is configured for be loaded automatically when OCTA
 
 @section Method 3: Offline - In MATLAB or OCTAVE
 @cindex Method 3
-If the BSLTL package, @url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}, 
+If the BSLTL package (@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}) 
 was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.

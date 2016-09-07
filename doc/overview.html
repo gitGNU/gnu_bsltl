@@ -3,7 +3,7 @@
 <!-- The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 Copyright (C) 2016 Fernando Pujaico Rivera -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Biospeckle Laser Tool Library</title>
 
@@ -20,16 +20,16 @@ Copyright (C) 2016 Fernando Pujaico Rivera -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -38,10 +38,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -52,7 +51,7 @@ ul.no-bullet {list-style: none}
   <SCRIPT SRC="../../jsMath/easy/load.js"></SCRIPT>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 
 	<div class="top-nav darkblock">
        	<a href="http://www.nongnu.org/bsltl/index.html">Home</a> |
@@ -78,31 +77,27 @@ ul.no-bullet {list-style: none}
 
 <ul class="no-bullet">
   <li><a name="toc-Citations-1" href="#Citations">1 Citations</a></li>
-  <li><a name="toc-Dependencies-1" href="#Dependencies">2 Dependencies</a>
+  <li><a name="toc-Installation-1" href="#Installation">2 Installation</a>
   <ul class="no-bullet">
-    <li><a name="toc-Octave-dependencies" href="#Octave-dependencies">2.1 Octave dependencies</a></li>
+    <li><a name="toc-Method-1_003a-Online-_002d-Only-in-OCTAVE" href="#Method-1_003a-Online-_002d-Only-in-OCTAVE">2.1 Method 1: Online - Only in OCTAVE</a></li>
+    <li><a name="toc-Method-2_003a-Offline-_002d-Only-in-OCTAVE" href="#Method-2_003a-Offline-_002d-Only-in-OCTAVE">2.2 Method 2: Offline - Only in OCTAVE</a></li>
+    <li><a name="toc-Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE" href="#Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE">2.3 Method 3: Offline - In MATLAB or OCTAVE</a></li>
   </ul></li>
-  <li><a name="toc-Installation-1" href="#Installation">3 Installation</a>
+  <li><a name="toc-Using-the-BSLTL-package-1" href="#Using-the-BSLTL-package">3 Using the BSLTL package</a>
   <ul class="no-bullet">
-    <li><a name="toc-Method-1_003a-Online-_002d-Only-in-OCTAVE" href="#Method-1_003a-Online-_002d-Only-in-OCTAVE">3.1 Method 1: Online - Only in OCTAVE</a></li>
-    <li><a name="toc-Method-2_003a-Offline-_002d-Only-in-OCTAVE" href="#Method-2_003a-Offline-_002d-Only-in-OCTAVE">3.2 Method 2: Offline - Only in OCTAVE</a></li>
-    <li><a name="toc-Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE" href="#Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE">3.3 Method 3: Offline - In MATLAB or OCTAVE</a></li>
+    <li><a name="toc-Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240" href="#Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240">3.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</a></li>
+    <li><a name="toc-Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100" href="#Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100">3.2 Example code of installation method 3 - Getting the AVD value of column 100</a></li>
+    <li><a name="toc-More-code-examples" href="#More-code-examples">3.3 More code examples</a></li>
   </ul></li>
-  <li><a name="toc-Using-the-BSLTL-package-1" href="#Using-the-BSLTL-package">4 Using the BSLTL package</a>
+  <li><a name="toc-Contributing-to-the-package-1" href="#Contributing-to-the-package">4 Contributing to the package</a>
   <ul class="no-bullet">
-    <li><a name="toc-Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240" href="#Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240">4.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</a></li>
-    <li><a name="toc-Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100" href="#Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100">4.2 Example code of installation method 3 - Getting the AVD value of column 100</a></li>
-    <li><a name="toc-More-code-examples" href="#More-code-examples">4.3 More code examples</a></li>
+    <li><a name="toc-Contributing-from-mailing-list" href="#Contributing-from-mailing-list">4.1 Contributing from mailing list</a></li>
+    <li><a name="toc-Contributing-through-a-patch" href="#Contributing-through-a-patch">4.2 Contributing through a patch</a></li>
   </ul></li>
-  <li><a name="toc-Contributing-to-the-package-1" href="#Contributing-to-the-package">5 Contributing to the package</a>
-  <ul class="no-bullet">
-    <li><a name="toc-Contributing-from-mailing-list" href="#Contributing-from-mailing-list">5.1 Contributing from mailing list</a></li>
-    <li><a name="toc-Contributing-through-a-patch" href="#Contributing-through-a-patch">5.2 Contributing through a patch</a></li>
-  </ul></li>
-  <li><a name="toc-Copyright-1" href="#Copyright">6 Copyright</a></li>
-  <li><a name="toc-Versions-1" href="#Versions">7 Versions</a></li>
-  <li><a name="toc-BSLTL-project-group-1" href="#BSLTL-project-group">8 BSLTL project group</a></li>
-  <li><a name="toc-Support-or-Contact-1" href="#Support-or-Contact">9 Support or Contact</a></li>
+  <li><a name="toc-Copyright-1" href="#Copyright">5 Copyright</a></li>
+  <li><a name="toc-Versions-1" href="#Versions">6 Versions</a></li>
+  <li><a name="toc-BSLTL-project-group-1" href="#BSLTL-project-group">7 BSLTL project group</a></li>
+  <li><a name="toc-Support-or-Contact-1" href="#Support-or-Contact">8 Support or Contact</a></li>
   <li><a name="toc-Index-1" href="#Index">Index</a></li>
 </ul>
 </div>
@@ -117,7 +112,7 @@ Next: <a href="#Citations" accesskey="n" rel="next">Citations</a>, Up: <a href="
 <h1 class="top">Introduction</h1>
 
 <p>The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
-biospeckle laser technique.(version 1.0.2).
+biospeckle laser technique.(version 1.1.0).
 </p>
 <p>Implemented technics:
 </p><ul>
@@ -133,23 +128,21 @@ biospeckle laser technique.(version 1.0.2).
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Citations" accesskey="1">Citations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to cite the library.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="2">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the dependencies of the BSLTL package.
+<tr><td align="left" valign="top">&bull; <a href="#Installation" accesskey="2">Installation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the intallation methods.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Installation" accesskey="3">Installation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the intallation methods.
+<tr><td align="left" valign="top">&bull; <a href="#Using-the-BSLTL-package" accesskey="3">Using the BSLTL package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About as to use the BSLTL package.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Using-the-BSLTL-package" accesskey="4">Using the BSLTL package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About as to use the BSLTL package.
+<tr><td align="left" valign="top">&bull; <a href="#Contributing-to-the-package" accesskey="4">Contributing to the package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How contribute with the package
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Contributing-to-the-package" accesskey="5">Contributing to the package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How contribute with the package
+<tr><td align="left" valign="top">&bull; <a href="#Copyright" accesskey="5">Copyright</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Legal notice copyright.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Copyright" accesskey="6">Copyright</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Legal notice copyright.
+<tr><td align="left" valign="top">&bull; <a href="#Versions" accesskey="6">Versions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Labeling criteria.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Versions" accesskey="7">Versions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Labeling criteria.
+<tr><td align="left" valign="top">&bull; <a href="#BSLTL-project-group" accesskey="7">BSLTL project group</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Authors.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BSLTL-project-group" accesskey="8">BSLTL project group</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Authors.
+<tr><td align="left" valign="top">&bull; <a href="#Support-or-Contact" accesskey="8">Support or Contact</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Links of interest.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Support-or-Contact" accesskey="9">Support or Contact</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Links of interest.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Complete index.
+<tr><td align="left" valign="top">&bull; <a href="#Index" accesskey="9">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Complete index.
 </td></tr>
 </table>
 
@@ -157,7 +150,7 @@ biospeckle laser technique.(version 1.0.2).
 <a name="Citations"></a>
 <div class="header">
 <p>
-Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Citations-1"></a>
 <h2 class="chapter">1 Citations</h2>
@@ -185,47 +178,19 @@ URL http://www.nongnu.org/bsltl/
 cite it when using it.  See also &lsquo;citation pkgname&rsquo; for citing other Octave 
 package with pkgname name.
 </p>
-<hr>
-<a name="Dependencies"></a>
-<div class="header">
-<p>
-Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="#Citations" accesskey="p" rel="prev">Citations</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Dependencies-1"></a>
-<h2 class="chapter">2 Dependencies</h2>
-
-<a name="Octave-dependencies"></a>
-<h3 class="section">2.1 Octave dependencies</h3>
-<p>Some functions inside BSLTL package depend of signal package;
-at the same time the signal package depends of control package.
-Thus, we recommend install first the control package and later the signal package
-with the following online OCTAVE installation commands.
-</p><div class="example">
-<pre class="example">pkg install -forge control
-pkg install -forge signal
-</pre></div>
-<a name="index-Dependencies-of-Octave_002dForge"></a>
-
-<p>In operating systems based in GNU/Linux can be necessary install first the 
-library <code>liboctave-dev</code> in the system, given that OCTAVE uses this library 
-to install the control package. The next code is an example (Ubuntu/Debian) of 
-command install in the system.
-</p>
-<pre class="verbatim">sudo apt-get install liboctave-dev
-</pre><a name="index-Dependencies-of-GNU_002dLinux"></a>
 
 <hr>
 <a name="Installation"></a>
 <div class="header">
 <p>
-Next: <a href="#Using-the-BSLTL-package" accesskey="n" rel="next">Using the BSLTL package</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Using-the-BSLTL-package" accesskey="n" rel="next">Using the BSLTL package</a>, Previous: <a href="#Citations" accesskey="p" rel="prev">Citations</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Installation-1"></a>
-<h2 class="chapter">3 Installation</h2>
+<h2 class="chapter">2 Installation</h2>
 
 
 <a name="Method-1_003a-Online-_002d-Only-in-OCTAVE"></a>
-<h3 class="section">3.1 Method 1: Online - Only in OCTAVE</h3>
+<h3 class="section">2.1 Method 1: Online - Only in OCTAVE</h3>
 <a name="index-Method-1"></a>
 <p>The next OCTAVE code, install the last version of BSLTL package directly from 
 octave-forge website in the default install directory.
@@ -235,23 +200,23 @@ octave-forge website in the default install directory.
 <p>With this method the package is configured for be loaded automatically when OCTAVE start.
 </p>
 <a name="Method-2_003a-Offline-_002d-Only-in-OCTAVE"></a>
-<h3 class="section">3.2 Method 2: Offline - Only in OCTAVE</h3>
+<h3 class="section">2.2 Method 2: Offline - Only in OCTAVE</h3>
 <a name="index-Method-2"></a>
-<p>The next OCTAVE code, install the BSLTL package, 
-<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.2.tar.gz</a>, 
+<p>If the BSLTL package (<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.1.0.tar.gz</a>)
+was downloaded in the directory: /download_path
+The next OCTAVE code, install the BSLTL package, 
 in the directory: ~/lib/octmat
 </p>
-<p>If the BSLTL package was downloaded in the directory: /download_path
-</p><div class="example">
+<div class="example">
 <pre class="example">pkg prefix ~/lib/octmat
-pkg install -auto /download_path/bsltl-1.0.2.tar.gz
+pkg install -auto /download_path/bsltl-1.1.0.tar.gz
 </pre></div>
 <p>With this method the package is configured for be loaded automatically when OCTAVE start.
 </p>
 <a name="Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE"></a>
-<h3 class="section">3.3 Method 3: Offline - In MATLAB or OCTAVE</h3>
+<h3 class="section">2.3 Method 3: Offline - In MATLAB or OCTAVE</h3>
 <a name="index-Method-3"></a>
-<p>If the BSLTL package, <a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.0.2.tar.gz</a>, 
+<p>If the BSLTL package (<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.1.0.tar.gz</a>) 
 was uncompressed in the directory &rsquo;/home/user/lib/octmat/bsltl&rsquo;. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
@@ -272,22 +237,22 @@ time that we call our source files.
 Next: <a href="#Contributing-to-the-package" accesskey="n" rel="next">Contributing to the package</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Using-the-BSLTL-package-1"></a>
-<h2 class="chapter">4 Using the BSLTL package</h2>
+<h2 class="chapter">3 Using the BSLTL package</h2>
 
 
 
 <a name="Example-code-of-installation-method-1-and-2-_002d-Getting-the-AVD-value-of-line-240"></a>
-<h3 class="section">4.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</h3>
+<h3 class="section">3.1 Example code of installation method 1 and 2 - Getting the AVD value of line 240</h3>
 <a name="index-Method-1-1"></a>
 <a name="index-Method-2-1"></a>
 <p>The next code load 129 images from the directory pointed by the variable
-<code>IMAGES_DIR</code>; the images are called <code>'1.bmp'</code>, <code>'2.bmp'</code>, ...,
-<code>'128.bmp'</code> and <code>'129.bmp'</code>. The images are joined in a 3D matrix
+<code>IMAGES_DIR</code>; the images are called <code>'img1.bmp'</code>, <code>'img2.bmp'</code>, ...,
+<code>'img128.bmp'</code> and <code>'img129.bmp'</code>. The images are joined in a 3D matrix
 called <code>DATA</code>.
 </p>
 <div class="example">
 <pre class="example">IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
@@ -299,15 +264,15 @@ and the AVD value, and your values are stored in the variables <code>THSP</code>
 <code>AVD</code> respectively.
 </p>
 <a name="Example-code-of-installation-method-3-_002d-Getting-the-AVD-value-of-column-100"></a>
-<h3 class="section">4.2 Example code of installation method 3 - Getting the AVD value of column 100</h3>
+<h3 class="section">3.2 Example code of installation method 3 - Getting the AVD value of column 100</h3>
 <a name="index-Method-3-1"></a>
 <p>The next code load to octave enviroment all the code functions located in the address pointed
 by the variable <code>BSLTL_DIR</code>, including subdirectories. 
 </p>
 <p>Later the code load 129 images from the directory 
 pointed by the variable
-<code>IMAGES_DIR</code>; the images are called <code>'1.bmp'</code>, <code>'2.bmp'</code>, ...,
-<code>'128.bmp'</code> and <code>'129.bmp'</code>. The images are joined in a 3D matrix
+<code>IMAGES_DIR</code>; the images are called <code>'img1.bmp'</code>, <code>'img2.bmp'</code>, ...,
+<code>'img128.bmp'</code> and <code>'img129.bmp'</code>. The images are joined in a 3D matrix
 called <code>DATA</code>.
 </p>
 <div class="example">
@@ -315,7 +280,7 @@ called <code>DATA</code>.
 addpath(genpath(BSLTL_DIR));
 
 IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
 
 THSP = thsp(DATA,'column',100); % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
@@ -327,7 +292,7 @@ and the AVD value, and your values are stored in the variables <code>THSP</code>
 <code>AVD</code> respectively.
 </p>
 <a name="More-code-examples"></a>
-<h3 class="section">4.3 More code examples</h3>
+<h3 class="section">3.3 More code examples</h3>
 
 <p>Many code examples  can be found in the <a href="http://www.nongnu.org/bsltl/examples.html">examples page</a>
 of BSLTL library.
@@ -339,7 +304,7 @@ of BSLTL library.
 Next: <a href="#Copyright" accesskey="n" rel="next">Copyright</a>, Previous: <a href="#Using-the-BSLTL-package" accesskey="p" rel="prev">Using the BSLTL package</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Contributing-to-the-package-1"></a>
-<h2 class="chapter">5 Contributing to the package</h2>
+<h2 class="chapter">4 Contributing to the package</h2>
 
 <p>In the case that you want to include a new function in the library,
 submissions will only be accepted when they have the source code documented
@@ -349,14 +314,14 @@ The tutorial can be made with Latex, Texinfo, Markdown, or any support that
 uses plain text.
 </p>
 <a name="Contributing-from-mailing-list"></a>
-<h3 class="section">5.1 Contributing from mailing list</h3>
+<h3 class="section">4.1 Contributing from mailing list</h3>
 
 <p>To contribute to the BSLTL package using your email account,
 you can send your proposal to the
 <a href="https://savannah.nongnu.org/mail/?group=bsltl">mailing list</a>
 </p>
 <a name="Contributing-through-a-patch"></a>
-<h3 class="section">5.2 Contributing through a patch</h3>
+<h3 class="section">4.2 Contributing through a patch</h3>
 
 <p>To contribute to the BSLTL package through a patch:
 </p>
@@ -383,7 +348,7 @@ git commit -m &quot;Here, you describe the modification made.&quot;
 Next: <a href="#Versions" accesskey="n" rel="next">Versions</a>, Previous: <a href="#Contributing-to-the-package" accesskey="p" rel="prev">Contributing to the package</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Copyright-1"></a>
-<h2 class="chapter">6 Copyright</h2>
+<h2 class="chapter">5 Copyright</h2>
 <div class="display">
 <pre class="display">Copyright (c) 2016 BSLTL project group.
 
@@ -410,10 +375,10 @@ USA.
 Next: <a href="#BSLTL-project-group" accesskey="n" rel="next">BSLTL project group</a>, Previous: <a href="#Copyright" accesskey="p" rel="prev">Copyright</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Versions-1"></a>
-<h2 class="chapter">7 Versions</h2>
+<h2 class="chapter">6 Versions</h2>
 
 <p>The increment in the version number has a meaning. To a version number 
-with the format &rsquo;va.b.c&rsquo; (by example: v1.0.2).
+with the format &rsquo;va.b.c&rsquo; (by example: v1.1.0).
 </p><ul>
 <li> An increment in &rsquo;c&rsquo; indicates a modification or correction in the code.
 </li><li> An increment in &rsquo;b&rsquo; indicates that at least a new function was added in the code.
@@ -427,7 +392,7 @@ with the format &rsquo;va.b.c&rsquo; (by example: v1.0.2).
 Next: <a href="#Support-or-Contact" accesskey="n" rel="next">Support or Contact</a>, Previous: <a href="#Versions" accesskey="p" rel="prev">Versions</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="BSLTL-project-group-1"></a>
-<h2 class="chapter">8 BSLTL project group</h2>
+<h2 class="chapter">7 BSLTL project group</h2>
 
 <ul>
 <li> Roberto Alves Braga Júnior <a href="mailto:robertobraga@deg.ufla.br">robertobraga@deg.ufla.br</a>
@@ -442,7 +407,7 @@ Next: <a href="#Support-or-Contact" accesskey="n" rel="next">Support or Contact<
 Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#BSLTL-project-group" accesskey="p" rel="prev">BSLTL project group</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Support-or-Contact-1"></a>
-<h2 class="chapter">9 Support or Contact</h2>
+<h2 class="chapter">8 Support or Contact</h2>
 
 <p>Having trouble with the package? Check out our 
 <a href="http://www.nongnu.org/bsltl/documentation.html">documentation</a> or 
@@ -462,8 +427,6 @@ Previous: <a href="#Support-or-Contact" accesskey="p" rel="prev">Support or Cont
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
- &nbsp; 
 <a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
@@ -473,10 +436,6 @@ Previous: <a href="#Support-or-Contact" accesskey="p" rel="prev">Support or Cont
 <tr><th><a name="Index_cp_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Citations-as-bibtex">Citations as bibtex</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Citations">Citations</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Citations-as-plain">Citations as plain</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Citations">Citations</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Index_cp_letter-D">D</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Dependencies-of-GNU_002dLinux">Dependencies of GNU-Linux</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dependencies">Dependencies</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Dependencies-of-Octave_002dForge">Dependencies of Octave-Forge</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dependencies">Dependencies</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index_cp_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method-1">Method 1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installation">Installation</a></td></tr>
@@ -488,8 +447,6 @@ Previous: <a href="#Support-or-Contact" accesskey="p" rel="prev">Support or Cont
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
  &nbsp; 
