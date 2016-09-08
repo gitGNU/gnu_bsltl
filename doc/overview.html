@@ -3,7 +3,7 @@
 <!-- The BSLTL package is a free collection of OCTAVE/MATLAB routines for working with the
 biospeckle laser technique.
 Copyright (C) 2016 Fernando Pujaico Rivera -->
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Biospeckle Laser Tool Library</title>
 
@@ -20,16 +20,16 @@ Copyright (C) 2016 Fernando Pujaico Rivera -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -38,9 +38,10 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -51,7 +52,7 @@ ul.no-bullet {list-style: none}
   <SCRIPT SRC="../../jsMath/easy/load.js"></SCRIPT>
 </head>
 
-<body lang="en">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 	<div class="top-nav darkblock">
        	<a href="http://www.nongnu.org/bsltl/index.html">Home</a> |
@@ -216,8 +217,9 @@ pkg install -auto /download_path/bsltl-1.1.0.tar.gz
 <a name="Method-3_003a-Offline-_002d-In-MATLAB-or-OCTAVE"></a>
 <h3 class="section">2.3 Method 3: Offline - In MATLAB or OCTAVE</h3>
 <a name="index-Method-3"></a>
-<p>If the BSLTL package (<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.1.0.tar.gz</a>) 
-was uncompressed in the directory &rsquo;/home/user/lib/octmat/bsltl&rsquo;. 
+<p>If the BSLTL package (<a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.1.0.zip</a>
+or <a href="http://download.savannah.gnu.org/releases/bsltl/">bsltl-1.1.0.tar.gz</a>) 
+was uncompressed in the directory <code>'/home/user/lib/octmat/bsltl'</code>. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
 </p><div class="example">
@@ -246,13 +248,13 @@ Next: <a href="#Contributing-to-the-package" accesskey="n" rel="next">Contributi
 <a name="index-Method-1-1"></a>
 <a name="index-Method-2-1"></a>
 <p>The next code load 129 images from the directory pointed by the variable
-<code>IMAGES_DIR</code>; the images are called <code>'img1.bmp'</code>, <code>'img2.bmp'</code>, ...,
+<code>IMAGES_DIR</code>; the images are called <code>'img001.bmp'</code>, <code>'img002.bmp'</code>, ...,
 <code>'img128.bmp'</code> and <code>'img129.bmp'</code>. The images are joined in a 3D matrix
 called <code>DATA</code>.
 </p>
 <div class="example">
 <pre class="example">IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%03d',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.

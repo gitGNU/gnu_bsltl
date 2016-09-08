@@ -131,8 +131,9 @@ With this method the package is configured for be loaded automatically when OCTA
 
 @section Method 3: Offline - In MATLAB or OCTAVE
 @cindex Method 3
-If the BSLTL package (@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}) 
-was uncompressed in the directory '/home/user/lib/octmat/bsltl'. 
+If the BSLTL package (@url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.zip}
+or @url{http://download.savannah.gnu.org/releases/bsltl/, bsltl-@value{VERSION}.tar.gz}) 
+was uncompressed in the directory @code{'/home/user/lib/octmat/bsltl'}. 
 For that this package can be used by a source file, it needs add the next code 
 in the top of source file.
 @example
@@ -156,13 +157,13 @@ time that we call our source files.
 @cindex Method 1
 @cindex Method 2
 The next code load 129 images from the directory pointed by the variable
-@code{IMAGES_DIR}; the images are called @code{'img1.bmp'}, @code{'img2.bmp'}, ...,
+@code{IMAGES_DIR}; the images are called @code{'img001.bmp'}, @code{'img002.bmp'}, ...,
 @code{'img128.bmp'} and @code{'img129.bmp'}. The images are joined in a 3D matrix
 called @code{DATA}.
 
 @example
 IMAGES_DIR = '/home/user/data/speckle/test1';
-DATA = datapack(IMAGES_DIR,'img%d',1,129,'bmp');
+DATA = datapack(IMAGES_DIR,'img%03d',1,129,'bmp');
 
 THSP = thsp(DATA,'line',240);   % Getting the time history speckle pattern.
 COM  = coom(THSP);              % Getting the co-occurrence matrix.
