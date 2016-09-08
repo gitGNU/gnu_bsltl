@@ -12,9 +12,11 @@ VERSION := $(shell grep "^Version: " DESCRIPTION | cut -f2 -d" ")
 TARGET_DIR      := target
 RELEASE_DIR     := $(TARGET_DIR)/$(PACKAGE)-$(VERSION)
 RELEASE_TARBALL := $(TARGET_DIR)/$(PACKAGE)-$(VERSION).tar.gz
+RELEASE_ZIP     := $(TARGET_DIR)/$(PACKAGE)-$(VERSION).zip
 HTML_DIR        := $(TARGET_DIR)/$(PACKAGE)-html
 HTML_TARBALL    := $(TARGET_DIR)/$(PACKAGE)-html.tar.gz
 SIG_RELEASE_TARBALL:= $(TARGET_DIR)/$(PACKAGE)-$(VERSION).tar.gz.sig
+SIG_RELEASE_ZIP:= $(TARGET_DIR)/$(PACKAGE)-$(VERSION).zip.sig
 EXPORT_DIR      := ../release
 
 M_SOURCES := $(wildcard inst/*.m)
@@ -47,6 +49,9 @@ help:
 %.tar.gz: %
 	tar -c -f - --posix -C "$(TARGET_DIR)/" "$(notdir $<)" | gzip -9n > "$@"
 
+%.zip: %
+	cd "$(TARGET_DIR)/"; zip -r "$(notdir $@)" "$(notdir $<)"
+
 $(RELEASE_DIR): .git/index
 	@echo "Creating package version $(VERSION) release ..."
 	-$(RM) -r "$@"
@@ -66,6 +71,11 @@ $(HTML_DIR): install
 	  --eval "options.package_doc_options = [options.package_doc_options,' --css-ref=manual.css ']; "\
 	  --eval 'generate_package_html ("${PACKAGE}", "$@", options);'
 	chmod -R a+rX,u+w,go-w $@
+
+zip: $(RELEASE_ZIP)
+	@echo 
+	cd $(TARGET_DIR); gpg -b --use-agent  $(notdir $(RELEASE_ZIP)) 
+	cd $(TARGET_DIR); gpg --verify $(notdir $(SIG_RELEASE_ZIP)) 
 
 dist: $(RELEASE_TARBALL)
 html: $(HTML_TARBALL)
