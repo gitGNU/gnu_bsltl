@@ -55,10 +55,10 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %  P0      [Optional] is the initial point [line column], around this point, M 
 %          values are selected to create the time history speckle pattern. If this parameter
 %          is not used, then a graphic window is enabled to the selection of a point P0.
-%          This parameter only can be the fourth parameter.
 %  HG      [Optional] is the used graphic handler; Additionally, it is enable the graphic 
 %          selection of a point P0 in the figure pointed by the graphic handler.
-%          This parameter only can be the fourth parameter.
+%  MAT     [Optional] is a matrix thats enable the graphic 
+%          selection of a point P0 in the figure created of imagesc the MAT.
 %  Show    [Optional] can be used in the last position of input, and its function 
 %          is used to enable a graphic output of the selected points that formed the
 %          THSP. Show='on', Show='on-red', Show='on-green' or Show='on-blue' to enable. 
@@ -95,37 +95,9 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 
     EXAMPLE_MATRIX=DATA(:,:,1);
 
-	if(nargin<4)
-		imagesc(EXAMPLE_MATRIX);
-		P0=zeros(1,2);	
-        refresh;
-		msgbox('Please select one point');	
-		[ P0(2) P0(1)]=ginput(1);
-		disp('Point loaded.');
-	else
-		if( isvector(varargin{1})  && (length(varargin{1})==2) && ~ischar(varargin{1}) )
-            %disp('Point loaded.');
-		    P0=varargin{1};
-        elseif( ishghandle(varargin{1}) )
-            %disp('Graphic handle loaded.');
-			figure(varargin{1});
-			P0=zeros(1,2);
-            refresh(varargin{1})		
-			msgbox('Please select one point');
-			[ P0(2) P0(1)]=ginput(1);
-			disp('Point loaded.');
-		elseif( ischar(varargin{1}) )
-            %disp('Default gcf loaded.');
-			imagesc(EXAMPLE_MATRIX);
-			P0=zeros(1,2);	
-            refresh;	
-			msgbox('Please select one point');
-			[ P0(2) P0(1)]=ginput(1);
-			disp('Point loaded.');
-        else
-			error('The 4th input parameter should be a vector [a b], a graphic handler or a string.');
-		end
-	end
+
+
+    [P0 HG SHOW]=bsltl_get_point0(varargin{:},EXAMPLE_MATRIX);
 
     if( (P0(1)<1) || (P0(1)>NLIN) )
         error(sprintf('The line of selected central point is out of datapack line limits. LINE:%d',P0(1)));
@@ -152,21 +124,60 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 		end
 	end
 
+    bsltl_plot_points(POINTS,HG,EXAMPLE_MATRIX,SHOW);
+
+	if(nargout >=2)
+		varargout{1}=POINTS;
+	end
+    
+end
+
+%%
+%% Getting a point P0 and HG.
+%%
+function  [P0 HG SHOW]=bsltl_get_point0(varargin)
+    HG=0;
+    P0=[0 0];
 	SHOW='off';
 
-	if(nargin>3)
-		if(ischar(varargin{nargin-3}))
-			SHOW=varargin{nargin-3};
-		end
-	end
+    %% P0 and HG loaded 
+	for II=1:nargin
+		if( isvector(varargin{II})  && (length(varargin{II})==2) && ~ischar(varargin{II}) )
+		    P0=varargin{II}
+
+		elseif( ishghandle(varargin{II}) )
+			HG=figure(varargin{II})
+            refresh(HG);
+
+		elseif( ischar(varargin{II}))
+			SHOW=varargin{II}
+
+		elseif( (length(size(varargin{II}))==2)&&(min(size(varargin{II}))>=3)&&(HG==0) )
+            imagesc(varargin{II});
+            HG=gcf;
+            refresh(HG);
+        end
+    end
+
+    if ((P0(1)==0)||(P0(2)==0))
+		msgbox('Please select one point');
+		[ P0(2) P0(1)]=ginput(1);
+    end
+end
+
+%%
+%% Getting a point P0 and HG.
+%%
+function  bsltl_plot_points(POINTS,HG,EXAMPLE_MATRIX,SHOW)
 
 	if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') || strcmp(SHOW,'on-green') || strcmp(SHOW,'on-blue'))
-        if( ishghandle(varargin{1}) )
-			figure(varargin{1});
-        else
+
+        if(HG==0)
 		    imagesc(EXAMPLE_MATRIX);
         end
+   
 		hold on;
+
         if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') )
 		    scatter(POINTS(:,2),POINTS(:,1),'r');
         elseif(strcmp(SHOW,'on-green') )
@@ -177,10 +188,5 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 		refresh 
 		hold off;
 	end
-
-	if(nargout >=2)
-		varargout{1}=POINTS;
-	end
-    
 end
 
