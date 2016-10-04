@@ -143,14 +143,14 @@ function  [P0 HG SHOW]=bsltl_get_point0(varargin)
     %% P0 and HG loaded 
 	for II=1:nargin
 		if( isvector(varargin{II})  && (length(varargin{II})==2) && ~ischar(varargin{II}) )
-		    P0=varargin{II}
+		    P0=varargin{II};
 
 		elseif( ishghandle(varargin{II}) )
-			HG=figure(varargin{II})
+			HG=figure(varargin{II});
             refresh(HG);
 
 		elseif( ischar(varargin{II}))
-			SHOW=varargin{II}
+			SHOW=varargin{II};
 
 		elseif( (length(size(varargin{II}))==2)&&(min(size(varargin{II}))>=3)&&(HG==0) )
             imagesc(varargin{II});
