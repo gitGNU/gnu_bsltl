@@ -1,4 +1,14 @@
 ===============================================================================
+bsltl-1.1.1   Release Date: 2016-10-10   Release Manager: Fernando Pujaico R.
+===============================================================================
+** thsp.m fixed.
+   thsp.m: Fixing the second input parameter in matlab, now accept correctly
+   'line' and 'column'.
+** thsp_gaussian.m fixed.
+   thsp_gaussian.m: Improving the function to accept extra parameters in any 
+   position.
+
+===============================================================================
 bsltl-1.1.0   Release Date: 2016-08-14   Release Manager: Fernando Pujaico R.
 ===============================================================================
 ** select_points.m and thsp_points.m added.
