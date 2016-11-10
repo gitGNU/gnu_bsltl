@@ -74,12 +74,12 @@ function [Y] = thsp(DATA,R,S)
 %
     a = size(DATA);
               
-    if ((R == 1) || strcmp(R,'line'))
+    if ((R == 1) | strcmp(R,'line'))
         Y = zeros(a(1,2),a(1,3));
         for b = 1:a(1,3)            
             Y(:,b) = (DATA(S,:,b))';
         end
-    elseif ((R == 2) || strcmp(R,'column'))
+    elseif ((R == 2) | strcmp(R,'column'))
         Y = zeros(a(1,1),a(1,3));
         for b = 1:a(1,3)
             Y(:,b) = DATA(:,S,b);
