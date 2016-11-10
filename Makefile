@@ -43,6 +43,7 @@ help:
 	@echo "   install - Install the $(PACKAGE) package in GNU Octave (uses first: dist)"
 	@echo "   check   - Execute package tests (w/o install)"
 	@echo "   run     - Run Octave with development in PATH (no install)"
+	@echo "   zip    - Create $(RELEASE_ZIP) for release from last git commit"
 	@echo
 
 
