@@ -75,7 +75,7 @@ function [C varargout] = thsp2corr(THSP, varargin)
     M= NSIZE(1,1);
     N= NSIZE(1,2);
 
-	N2=round(N/2);
+	N2=floor(N/2);
     
 	CMAT = zeros(N2,N2);
 
