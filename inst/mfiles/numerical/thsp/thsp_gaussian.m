@@ -179,11 +179,11 @@ function  bsltl_plot_points(POINTS,HG,EXAMPLE_MATRIX,SHOW)
 		hold on;
 
         if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') )
-		    scatter(POINTS(:,2),POINTS(:,1),'r');
+		    scatter(POINTS(:,2),POINTS(:,1),'r','filled');
         elseif(strcmp(SHOW,'on-green') )
-		    scatter(POINTS(:,2),POINTS(:,1),'g');
+		    scatter(POINTS(:,2),POINTS(:,1),'g','filled');
         elseif(strcmp(SHOW,'on-blue') )
-		    scatter(POINTS(:,2),POINTS(:,1),'b');
+		    scatter(POINTS(:,2),POINTS(:,1),'b','filled');
         end
 		refresh 
 		hold off;
