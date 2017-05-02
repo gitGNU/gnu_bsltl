@@ -61,7 +61,9 @@ function [Y varargout] = thsp_gaussian(DATA, M,Sigma,varargin)
 %          selection of a point P0 in the figure created of imagesc the MAT.
 %  Show    [Optional] can be used in the last position of input, and its function 
 %          is used to enable a graphic output of the selected points that formed the
-%          THSP. Show='on', Show='on-red', Show='on-green' or Show='on-blue' to enable. 
+%          THSP. Show='on', Show='on-red', Show='on-green', Show='on-blue' 
+%          Show='on-cyan', Show='on-magenta', Show='on-yellow', 
+%          Show='on-black' or Show='on-white' to enable. 
 %          It is disabled in other cases, by default Show='off'.
 %          Show='on' plot the points in the color red, in other cases are used the
 %          specified colors.
@@ -170,7 +172,15 @@ end
 %%
 function  bsltl_plot_points(POINTS,HG,EXAMPLE_MATRIX,SHOW)
 
-	if(strcmp(SHOW,'on') || strcmp(SHOW,'on-red') || strcmp(SHOW,'on-green') || strcmp(SHOW,'on-blue'))
+	if( strcmp(SHOW,'on') || 
+        strcmp(SHOW,'on-red') || 
+        strcmp(SHOW,'on-green') || 
+        strcmp(SHOW,'on-blue') || 
+        strcmp(SHOW,'on-cyan') || 
+        strcmp(SHOW,'on-magenta') || 
+        strcmp(SHOW,'on-yellow') || 
+        strcmp(SHOW,'on-black') || 
+        strcmp(SHOW,'on-white'))
 
         if(HG==0)
 		    imagesc(EXAMPLE_MATRIX);
@@ -184,6 +194,16 @@ function  bsltl_plot_points(POINTS,HG,EXAMPLE_MATRIX,SHOW)
 		    scatter(POINTS(:,2),POINTS(:,1),'g','filled');
         elseif(strcmp(SHOW,'on-blue') )
 		    scatter(POINTS(:,2),POINTS(:,1),'b','filled');
+        elseif(strcmp(SHOW,'on-black') )
+		    scatter(POINTS(:,2),POINTS(:,1),'k','filled');
+        elseif(strcmp(SHOW,'on-white') )
+		    scatter(POINTS(:,2),POINTS(:,1),'w','filled');
+        elseif(strcmp(SHOW,'on-cyan') )
+		    scatter(POINTS(:,2),POINTS(:,1),'c','filled');
+        elseif(strcmp(SHOW,'on-magenta') )
+		    scatter(POINTS(:,2),POINTS(:,1),'m','filled');
+        elseif(strcmp(SHOW,'on-yellow') )
+		    scatter(POINTS(:,2),POINTS(:,1),'y','filled');
         end
 		refresh 
 		hold off;
